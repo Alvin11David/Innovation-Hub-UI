@@ -1,0 +1,1463 @@
+# PROJECT: INNOVATION & PROJECT SUBMISSION MANAGEMENT SYSTEM
+## Premium Frontend UI/UX Design — Awwwards-Inspired Institutional Web Application
+
+Act as a world-class Senior Product Designer, UI/UX Designer, Design Systems Engineer, and Senior Frontend Developer.
+
+Your task is to design and build a complete, polished, responsive, interactive frontend prototype for an **Innovation and Project Submission Management System** based on the functional requirements below.
+
+The design must have the visual quality of a premium SaaS product featured on Awwwards, while maintaining the clarity, usability, accessibility, and professionalism expected of a university or institutional workflow management platform.
+
+This is a frontend-only project. Do not build a backend, create a real database, configure authentication servers, or connect to external APIs. Use realistic mock data and browser-side state to demonstrate how the system would work.
+
+Do not produce only a landing page, static mockup, or collection of disconnected screens. Build a coherent, navigable web application with multiple pages, interactive controls, realistic data, and a consistent design system.
+
+---
+
+# 1. PROJECT BACKGROUND
+
+The system manages the reception, documentation, fact-finding, review, refinement, and routing of student projects and general innovation ideas.
+
+The requirements were gathered during a meeting with Mr. Kaddu Titus on 14 October 2026.
+
+The system must accommodate two distinct submission categories:
+
+1. Student Projects
+2. General Innovations
+
+Student projects require a project code for identification and tracking. General innovation submissions must follow their own appropriate pathway and must not automatically be subjected to student-specific requirements.
+
+The receptionist serves as an initial receiving and routing point. Designated personnel examine project briefs, review supporting documents, identify missing information, forward submissions to relevant sectors, and provide constructive feedback.
+
+Ideas that need improvement should generally be guided through refinement rather than rejected immediately.
+
+The system may involve multiple reviewers, an Intellectual Property (IP) destination, and several institutional sectors. The precise organizational roles and workflow transitions are not yet confirmed, so make these elements configurable in the frontend rather than assuming an unchangeable process.
+
+## Core product objective
+
+Create a centralized workspace where authorized personnel can:
+
+- Register incoming projects and innovation ideas.
+- View and search submissions.
+- Track project codes and submission statuses.
+- Review project briefs and supporting documents.
+- Identify missing information.
+- Assign submissions to responsible personnel or sectors.
+- Route briefs to Intellectual Property where appropriate.
+- Record reviews, recommendations, and constructive feedback.
+- Return submissions for refinement.
+- Track revisions and resubmissions.
+- Inspect the activity history of each submission.
+- Monitor workflow progress through a clear dashboard.
+
+The system should communicate trust, accountability, innovation, efficiency, and institutional professionalism.
+
+---
+
+# 2. TECHNOLOGY STACK
+
+Build the application using the following frontend technologies:
+
+- React
+- TypeScript
+- Vite
+- Tailwind CSS
+- shadcn/ui where appropriate
+- Lucide React for icons
+- React Router for client-side navigation
+- Framer Motion or Motion for subtle, purposeful animations
+- Recharts for dashboard charts
+- React Hook Form and Zod for form handling and validation, if compatible with the environment
+
+Use the existing Replit project structure if a working application already exists. Inspect the existing files before making changes, preserve useful configuration, and avoid unnecessary rewrites.
+
+If the project is empty, scaffold the application with the stack above.
+
+Use reusable components, typed data models, consistent naming, and a maintainable folder structure.
+
+Do not add unnecessary libraries when existing tools can achieve the same result.
+
+## Frontend-only implementation requirements
+
+- Use realistic mock data stored locally in TypeScript files or a lightweight client-side state store.
+- Use local state or Context for UI state and workflow interactions.
+- Use localStorage where useful to preserve prototype changes across page refreshes.
+- Do not create or connect a real database.
+- Do not implement actual server authentication.
+- Do not require API keys, paid services, or environment secrets.
+- Do not claim that information has been sent to real users.
+- Clearly treat uploaded documents, review actions, and workflow updates as prototype interactions.
+- Use seeded demonstration data so the application looks populated immediately on first launch.
+- Include a convenient way to reset the demo data if needed.
+
+Every major button should perform an appropriate action. Avoid dead buttons, decorative controls that look functional but do nothing, and placeholder links that lead nowhere.
+
+---
+
+# 3. VISUAL DESIGN DIRECTION
+
+Create a sophisticated, editorial, contemporary institutional dashboard.
+
+The visual quality should combine the refined aesthetic of a premium fintech dashboard, the visual storytelling of an Awwwards-quality digital product, and the usability of a professional enterprise application.
+
+Do not imitate a particular existing product screen. Develop an original design language.
+
+## Color palette
+
+Use a restrained, premium palette:
+
+- Primary background: warm off-white, approximately #F8F8F5.
+- Main surface: white, approximately #FFFFFF.
+- Primary text: deep charcoal, approximately #171A19.
+- Secondary text: muted slate, approximately #747A78.
+- Primary accent: deep forest green, approximately #176B52.
+- Secondary accent: lime or soft chartreuse, approximately #D9F27A.
+- Border: subtle warm gray, approximately #E7E9E4.
+- Information: muted blue.
+- Warning: warm amber.
+- Error: restrained red.
+- Success: forest green.
+
+Use green as the primary institutional accent. Use chartreuse sparingly for active indicators, highlights, or selected elements.
+
+Do not make every element colorful. Most of the interface should use neutral surfaces, clear typography, whitespace, and subtle borders.
+
+## Typography
+
+Use a modern, high-quality type pairing such as:
+
+- Headings: Manrope or Plus Jakarta Sans.
+- Body text: Inter.
+
+Use strong typography hierarchy, carefully controlled font weights, clear labels, comfortable reading sizes, and well-spaced headings.
+
+Large page headings should feel intentional and editorial without sacrificing information density.
+
+## Layout
+
+Use:
+
+- A persistent desktop sidebar.
+- A compact top navigation bar.
+- A responsive mobile navigation drawer.
+- Spacious dashboard layouts.
+- Clear page titles and contextual descriptions.
+- Well-designed cards with subtle borders.
+- Refined tables with comfortable row spacing.
+- Attractive empty states.
+- Skeleton loading states where appropriate.
+- Contextual action menus.
+- Breadcrumbs on detail pages.
+- Toast notifications for successful prototype actions.
+
+Avoid excessive rounded cards, heavy shadows, unnecessary gradients, and generic AI-generated dashboard aesthetics.
+
+Prefer restrained corner radii, subtle depth, crisp alignment, and consistent spacing.
+
+Use an 8-point spacing system wherever practical.
+
+## Animation and interaction
+
+Add subtle, professional motion:
+
+- Sidebar and navigation transitions.
+- Smooth page transitions where appropriate.
+- Staggered dashboard card entrances.
+- Gentle hover states.
+- Animated status changes.
+- Progress indicator transitions.
+- Dropdown and modal transitions.
+- Subtle button feedback.
+- Respect the user's reduced-motion preference.
+
+Animations should improve perceived quality without making the application slow or distracting.
+
+## Quality benchmark
+
+The finished application should look like a carefully designed, production-ready SaaS interface rather than a student exercise.
+
+Prioritize visual consistency, information hierarchy, interaction quality, responsive behavior, and realistic product details.
+
+---
+
+# 4. APPLICATION SHELL
+
+Create a reusable application shell containing:
+
+## A. Sidebar
+
+At the top, display an original brand identity:
+
+**INNOVATION HUB**
+
+Subtitle: Project & Ideas Management
+
+Create a simple geometric logo using an icon or a small custom SVG.
+
+Include the following navigation items:
+
+- Overview
+- All Submissions
+- Student Projects
+- General Innovations
+- Fact-Finding
+- Reviews
+- Routing & Assignments
+- Documents
+- Activity History
+- Reports & Analytics
+- Settings
+
+Group related items under small uppercase section labels, such as WORKSPACE and MANAGEMENT.
+
+The active navigation item should have a clear background, accent color, and visual indicator.
+
+Include a bottom profile area with a demonstration user, role label, avatar, and dropdown.
+
+The sidebar should be collapsible on desktop and transform into a drawer on mobile.
+
+Do not display every navigation item as active simultaneously. The active item must correspond to the current route.
+
+## B. Top navigation
+
+Include:
+
+- Breadcrumb or current section title.
+- Global search field.
+- Search keyboard shortcut indicator.
+- Notification icon with unread count.
+- Help or support icon.
+- Current user's avatar and role.
+- Optional contextual primary action, such as "Register Submission".
+
+The global search should search mock submissions by title, project code, category, status, or submitter.
+
+## C. Global interaction behavior
+
+- Navigation links change pages using React Router.
+- Search displays matching results.
+- Notification controls open a realistic notification panel.
+- User profile controls open a menu.
+- Buttons provide visible interaction feedback.
+- Forms show validation errors when necessary.
+- Modals close appropriately.
+- Empty states include a helpful explanation and relevant action.
+
+---
+
+# 5. DASHBOARD / OVERVIEW PAGE
+
+Build an excellent default dashboard for the currently selected demonstration user.
+
+The dashboard should be visually impressive but genuinely useful.
+
+## Welcome section
+
+Example:
+
+"Good morning, Sarah."
+
+Subtitle:
+
+"Here's what's happening across your innovation and project pipeline."
+
+Include a current-date display and a primary "Register Submission" button.
+
+Use a small, restrained decorative visual or abstract geometric accent if it improves the design.
+
+## KPI cards
+
+Display four primary metric cards:
+
+1. Total Submissions
+2. Awaiting Review
+3. Returned for Refinement
+4. Completed This Month
+
+Each card should show:
+
+- Metric value.
+- Short explanatory label.
+- Optional comparison with a previous period.
+- Small icon.
+- Minimal visual indicator or sparkline where appropriate.
+
+Use internally consistent mock figures and make the metrics derive from the demonstration data where practical.
+
+## Workflow overview
+
+Create a visually clear workflow pipeline:
+
+Received → Registered → Fact-Finding → Under Review → Refinement → Further Handling
+
+The workflow must also support category-specific pathways and optional IP routing.
+
+Display the number of submissions at each stage.
+
+Make the stages clickable so selecting a stage navigates to the submissions page with the appropriate status filter.
+
+Do not imply that all submissions must follow every stage in precisely this order; this is a preliminary demonstration workflow.
+
+## Recent submissions
+
+Show a polished table or hybrid list with columns:
+
+- Project / Idea
+- Project Code
+- Category
+- Submitted By
+- Current Stage
+- Last Updated
+- Assigned To
+- Actions
+
+Use status badges with consistent colors.
+
+Example mock submissions:
+
+- Smart Irrigation Monitoring System
+- Community Waste-to-Energy Initiative
+- Maternal Health Follow-up Platform
+- Solar-Powered Cold Storage
+- Campus Accessibility Mapping
+- Digital Heritage Preservation Project
+
+Use a mixture of student projects and general innovations.
+
+Generate plausible demonstration codes such as STU-2026-001 and STU-2026-002 for student projects only. Label all codes as illustrative.
+
+General innovations should not be assigned student project codes unless the workflow explicitly requires them.
+
+Include a "View All Submissions" link.
+
+## Attention required
+
+Add a section showing items that need action:
+
+- Missing supporting documentation.
+- Reviews awaiting completion.
+- Briefs returned for refinement.
+- Submissions awaiting sector assignment.
+- Pending IP routing decisions.
+
+Each item should link to the relevant submission or filtered list.
+
+## Activity feed
+
+Display recent events such as:
+
+- Submission registered.
+- Brief assigned to a reviewer.
+- Recommendation letter added.
+- Brief returned for refinement.
+- Submission forwarded to a sector.
+
+Each activity entry should include a small avatar or icon, actor, action, associated submission, and timestamp.
+
+All dashboard elements must use coherent mock data.
+
+---
+
+# 6. ALL SUBMISSIONS PAGE
+
+Create a full submissions management interface.
+
+At the top, show:
+
+Title: All Submissions
+
+Description: "Manage, track, and route student projects and general innovations."
+
+Include a primary action button to register a submission.
+
+## Filters
+
+Provide working controls for:
+
+- Search by title or code.
+- Category.
+- Workflow stage.
+- Assigned sector.
+- Assigned reviewer.
+- Date range.
+- Documentation status.
+
+Include a "Clear Filters" action.
+
+## Tabs or segmented filters
+
+- All
+- Student Projects
+- General Innovations
+- Needs Attention
+- Recently Updated
+
+Changing a tab should update the displayed results.
+
+## Table
+
+Include:
+
+- Submission title and short description.
+- Project code, where applicable.
+- Category.
+- Submitter.
+- Current stage.
+- Documentation completeness.
+- Assigned sector.
+- Last updated.
+- More actions.
+
+Use realistic examples and status badges.
+
+Support:
+
+- Sorting by relevant columns.
+- Pagination or a clear "Load More" interaction.
+- Selecting a row to open its detail page.
+- Opening an action menu.
+- Filtering results.
+- A useful empty state when no records match.
+
+Add a bulk-selection interface only if the actions offered are appropriate for the selected records. Never silently apply destructive actions.
+
+---
+
+# 7. REGISTER SUBMISSION PAGE
+
+Build a premium, user-friendly multi-step form.
+
+Use a stepper with four stages:
+
+1. Submission Type
+2. Project Information
+3. Supporting Documents
+4. Review & Register
+
+## Step 1: Submission type
+
+Allow the user to select between:
+
+A. Student Project
+
+B. General Innovation
+
+Use large, attractive selectable panels with icons, concise descriptions, and selected states.
+
+Explain that student projects follow the institutional project pathway while general innovations follow the general innovation pathway.
+
+## Step 2: Project information
+
+Include fields for:
+
+- Project or idea title.
+- Short summary.
+- Purpose of the idea.
+- Problem being addressed.
+- Intended outcome.
+- Submitter name.
+- Submitter email.
+- Contact information, if required.
+- Institution or affiliation, where applicable.
+- Responsible initiating officer.
+- Initial receiving officer.
+- Date received.
+
+Show required-field indicators.
+
+For student projects, conditionally display:
+
+- Student name.
+- Student number, using clearly fictional demo data where prefilled.
+- Programme or department.
+- Supervisor or lecturer, where applicable.
+- Project code field or an illustrative automatically generated code.
+
+Important: The meeting confirms that students do not initiate the brief themselves. Do not design the student-facing interface as though students independently create the official brief. Instead, make the registration and initiation process an authorized staff workflow. Student details can be recorded by the authorized staff member.
+
+For general innovations, do not show mandatory student-only fields.
+
+The exact identity of the role responsible for initiating a brief remains unconfirmed. Represent this through a configurable responsible-officer field rather than hard-coding a specific organizational role.
+
+## Step 3: Supporting documents
+
+Create a refined drag-and-drop upload zone.
+
+Support frontend file selection for demonstration purposes.
+
+Include document types such as:
+
+- Project Brief.
+- Recommendation Letter.
+- Supporting Evidence.
+- Technical Documentation.
+- Other.
+
+Show:
+
+- File name.
+- File size.
+- File type.
+- Upload progress simulation.
+- Remove action.
+- Upload status.
+
+Allow optional documents unless the selected workflow marks them as required.
+
+Recommendation letters should be treated as conditional supporting evidence, not universally mandatory.
+
+Use client-side file validation for reasonable file types and sizes.
+
+Because this is frontend-only, clearly treat selected files as local prototype data. Do not claim they have been securely stored on a server.
+
+## Step 4: Review and register
+
+Display a readable summary of the entered information.
+
+Allow users to return to previous steps and edit details.
+
+When the user confirms registration:
+
+- Create a mock submission record.
+- Add it to client-side state.
+- Persist the record to localStorage if practical.
+- Generate a unique demo ID.
+- Generate or assign an illustrative student project code only when appropriate.
+- Display a success toast or confirmation screen.
+- Provide a link to the newly registered submission.
+
+The registration flow must work without a backend.
+
+---
+
+# 8. SUBMISSION DETAILS PAGE
+
+This is one of the most important screens in the application.
+
+Create a comprehensive detail view that resembles a professional case-management workspace.
+
+Use a clear two-column desktop layout where appropriate.
+
+## Header
+
+Display:
+
+- Project or idea title.
+- Category badge.
+- Project code, if applicable.
+- Current status.
+- Date received.
+- Assigned sector.
+- Responsible officer.
+- Primary action based on the current workflow stage.
+
+Example:
+
+Smart Irrigation Monitoring System
+
+STU-2026-001
+
+Student Project · Under Review
+
+## Overview panel
+
+Display:
+
+- Project summary.
+- Purpose.
+- Problem statement.
+- Intended outcome.
+- Submitter information.
+- Programme or department, if applicable.
+- Initial receiving officer.
+- Responsible initiating officer.
+- Current reviewer or assigned team.
+
+Do not expose sensitive contact details indiscriminately. Use clearly fictional demonstration data.
+
+## Workflow progress
+
+Display a horizontal stepper on larger screens and a vertical timeline on narrow screens.
+
+Possible stages:
+
+- Received
+- Registered
+- Fact-Finding
+- Under Review
+- Refinement Requested
+- Further Handling
+- Completed
+
+Also support other relevant states, including awaiting documentation and awaiting routing.
+
+Make it clear that the actual sequence can differ depending on the category and organizational rules.
+
+## Supporting documents panel
+
+Display document cards with:
+
+- Document title.
+- Document category.
+- File name.
+- Date added.
+- Added by.
+- Document status.
+- View or preview action where supported.
+- Download action only when a real local file is available.
+- Missing-document indicators.
+
+Do not invent real download links.
+
+## Review panel
+
+Display review records with:
+
+- Reviewer name.
+- Role.
+- Review date.
+- Review status.
+- Comments.
+- Recommendations.
+- Outstanding questions.
+
+Provide a form to add a mock review when the selected role is authorized.
+
+## Routing panel
+
+Display:
+
+- Current destination.
+- Previous destinations.
+- Responsible officer.
+- Forwarding date.
+- Routing status.
+- Routing notes.
+
+Provide a "Route Submission" action for authorized demonstration roles.
+
+## Activity history
+
+Display a chronological audit timeline of events, including:
+
+- Registration.
+- Code assignment.
+- Document attachment.
+- Fact-finding assessment.
+- Review assignment.
+- Feedback.
+- Refinement.
+- Resubmission.
+- Sector routing.
+- IP routing, if applicable.
+
+Every mock action should append a new event to this timeline.
+
+## Contextual action buttons
+
+Depending on the current state and selected role, provide actions such as:
+
+- Begin Fact-Finding.
+- Request Additional Information.
+- Assign Reviewer.
+- Add Review.
+- Return for Refinement.
+- Resubmit Updated Brief.
+- Route to Sector.
+- Route to IP.
+- Mark Review Complete.
+- View Activity History.
+
+These actions should update the local prototype state and display meaningful confirmation.
+
+Do not implement a blanket "Reject" button as the default response to incomplete proposals. If a rejection action is demonstrated at all, it should be secondary and require an explicit confirmation or reason.
+
+---
+
+# 9. FACT-FINDING DASHBOARD
+
+Create a dedicated workspace for the designated fact-finding personnel.
+
+Include:
+
+- Page heading and explanatory subtitle.
+- Number of submissions awaiting assessment.
+- Items requiring additional information.
+- Items ready for routing.
+- Recently assessed submissions.
+
+Provide a queue organized into:
+
+- Awaiting Assessment.
+- In Assessment.
+- Needs Additional Information.
+- Ready for Routing.
+- Recently Updated.
+
+Each submission should show:
+
+- Title.
+- Category.
+- Project code, if applicable.
+- Date received.
+- Brief completeness.
+- Documentation status.
+- Priority indicator, if applicable.
+- Current responsible officer.
+
+Selecting an item opens its detail page.
+
+## Fact-finding assessment panel
+
+On a selected submission, allow the user to record:
+
+- Whether the title is clear.
+- Whether the purpose is clearly defined.
+- Whether supporting information is adequate.
+- Whether additional evidence is required.
+- Recommended next step.
+- Notes for the next responsible person.
+
+Use practical controls such as checkboxes, radio options, text areas, and dropdowns.
+
+Possible outcomes:
+
+- Ready for Review.
+- Additional Information Required.
+- Ready for Routing.
+- Needs Clarification.
+
+Do not treat these prototype outcomes as a final approved institutional policy.
+
+Saving an assessment must update the local record and append an activity event.
+
+---
+
+# 10. REVIEWS WORKSPACE
+
+Create a professional multi-reviewer interface.
+
+The meeting mentions five users associated with the review process, but their exact roles and review order have not been confirmed.
+
+Do not create five permanent organizational roles or hard-code a sequential approval chain.
+
+Instead, provide a flexible reviewer assignment interface with mock configurable reviewers.
+
+## Review overview
+
+Show:
+
+- Pending Reviews.
+- In Progress.
+- Completed Reviews.
+- Awaiting Refinement.
+
+## Review queue
+
+Include:
+
+- Submission.
+- Category.
+- Assigned reviewer.
+- Reviewer role.
+- Date assigned.
+- Due date, if applicable.
+- Review status.
+
+## Reviewer assignment modal
+
+Allow an authorized demonstration user to:
+
+- Select a reviewer.
+- Specify their role or responsibility.
+- Add an assignment note.
+- Assign the review.
+
+Use fictional sample names and generic role labels.
+
+## Review form
+
+Include:
+
+- Understanding of the proposed idea.
+- Clarity of purpose.
+- Supporting evidence.
+- Identified strengths.
+- Areas for improvement.
+- Recommended next step.
+- Additional comments.
+
+Suggested next steps:
+
+- Recommend Further Assessment.
+- Request Refinement.
+- Request Supporting Documentation.
+- Recommend Routing to a Relevant Sector.
+- Record a Concern for Further Discussion.
+
+The system should encourage constructive assessment.
+
+Do not assume that every reviewer can approve or reject the entire proposal. Display permissions and actions according to the selected demonstration role.
+
+When a review is saved, update the mock review record and the activity history.
+
+---
+
+# 11. ROUTING AND ASSIGNMENTS
+
+Create a dedicated page for routing submissions to the appropriate institutional destination.
+
+The exact sector names are not yet confirmed. Use illustrative, configurable options such as:
+
+- Intellectual Property (IP).
+- Technical Assessment.
+- Research and Innovation.
+- Relevant Academic Department.
+- External or Specialized Assessment.
+- Other Sector.
+
+Clearly label these as demonstration options rather than an approved institutional hierarchy.
+
+## Routing interface
+
+Provide:
+
+- Submission selector.
+- Current stage.
+- Current responsible officer.
+- Destination sector.
+- Assigned recipient or reviewer.
+- Routing reason.
+- Instructions or notes.
+- Supporting documentation checklist.
+- Confirmation action.
+
+On confirmation:
+
+- Update the mock destination.
+- Update the submission's stage when appropriate.
+- Record the routing date.
+- Record the selected destination.
+- Append a routing event to the activity history.
+- Show a success toast.
+
+Include a routing history table containing:
+
+- Submission.
+- Previous destination.
+- New destination.
+- Forwarded by.
+- Forwarded date.
+- Status.
+
+Support routing to IP as an available option, but do not make it compulsory for every submission.
+
+Do not send real notifications or external requests.
+
+---
+
+# 12. REFINEMENT AND RESUBMISSION EXPERIENCE
+
+This feature is central to the system's philosophy.
+
+Create a dedicated interface for submissions that need improvement.
+
+The interface should feel constructive and professional, not punitive.
+
+## Refinement overview
+
+Show:
+
+- Submissions awaiting updates.
+- Recently resubmitted briefs.
+- Outstanding documentation.
+- Pending clarification requests.
+
+## Refinement details
+
+Display:
+
+- Original submission summary.
+- Reviewer feedback.
+- Specific changes requested.
+- Missing information.
+- Supporting evidence required.
+- Date returned for refinement.
+- Responsible person.
+- Revision history.
+
+## Refinement feedback form
+
+Allow reviewers to create actionable feedback items with:
+
+- Issue or observation.
+- Explanation.
+- Recommended improvement.
+- Whether supporting documentation is needed.
+- Priority, if useful.
+
+Use respectful language such as:
+
+- "Additional information needed."
+- "Suggested improvements."
+- "Please clarify the project purpose."
+- "Supporting evidence required."
+
+Avoid making the interface feel like an automated rejection system.
+
+## Resubmission demonstration
+
+Provide a button labelled "Submit Revised Brief" or "Record Resubmission", depending on the demonstration role.
+
+Allow the user to update mock project information, add revised supporting documents, and include a response to reviewer comments.
+
+Record each revision as a new revision-history entry.
+
+Preserve previous feedback and historical records rather than silently overwriting the entire history.
+
+---
+
+# 13. DOCUMENT MANAGEMENT
+
+Create a central document library for authorized personnel.
+
+Include:
+
+- Search.
+- Document type filter.
+- Submission filter.
+- Date added filter.
+- Uploaded by filter.
+- Documentation status.
+
+Display documents in a polished table or grid.
+
+Columns:
+
+- Document.
+- Associated Submission.
+- Category.
+- Uploaded By.
+- Date Added.
+- Status.
+- Actions.
+
+Provide a document preview modal for supported text or image files where feasible.
+
+For PDF and other unsupported preview types, show a suitable file-information panel instead of a broken preview.
+
+Allow local file selection for demonstration purposes.
+
+Clearly communicate that documents are only represented in frontend state and are not uploaded to a secure backend.
+
+Include missing-document indicators on associated submissions.
+
+---
+
+# 14. ACTIVITY HISTORY / AUDIT TRAIL
+
+Build a comprehensive activity history page.
+
+Include:
+
+- Search by submission.
+- Search by actor.
+- Filter by activity type.
+- Date filter.
+- Category filter.
+
+Example events:
+
+- Submission registered.
+- Student project code assigned.
+- Brief assessed.
+- Reviewer assigned.
+- Supporting evidence added.
+- Additional information requested.
+- Brief returned for refinement.
+- Revised brief recorded.
+- Submission forwarded to IP.
+- Submission routed to a sector.
+
+Each event should display:
+
+- Action.
+- User or responsible role.
+- Related submission.
+- Timestamp.
+- Relevant notes.
+
+Use a vertical timeline or a clean audit table.
+
+Events should be appended whenever a prototype action changes a submission.
+
+Historical events should remain visible after later actions.
+
+---
+
+# 15. REPORTS AND ANALYTICS
+
+Create a polished reporting dashboard using Recharts.
+
+Include visualizations for:
+
+- Submissions over time.
+- Student projects versus general innovations.
+- Submissions by current stage.
+- Documentation completeness.
+- Reviews completed versus pending.
+- Refinement and resubmission trends.
+- Routing destinations.
+
+Use realistic seeded data.
+
+Provide date-range filters such as:
+
+- Last 7 Days.
+- Last 30 Days.
+- Last 90 Days.
+- All Time.
+
+Use clear labels, helpful tooltips, restrained colors, and responsive charts.
+
+Include a small summary section showing the main insights.
+
+The metrics should derive from the same mock data as the rest of the application where practical.
+
+Do not imply that demonstration analytics are real institutional statistics.
+
+Provide an optional CSV export of the currently displayed mock records using client-side functionality, without any backend dependency.
+
+---
+
+# 16. SETTINGS AND ROLE SIMULATION
+
+Create a settings page with sections for:
+
+- Profile.
+- Interface preferences.
+- Workflow configuration.
+- Submission categories.
+- Documentation requirements.
+- Sectors and destinations.
+- Reviewer directory.
+- Demonstration role.
+
+Because organizational roles are still being validated, make the interface configurable.
+
+## Role simulation
+
+Provide a demonstration role selector with illustrative roles such as:
+
+1. Administrator.
+2. Receptionist.
+3. Fact-Finding Officer.
+4. Reviewer.
+5. Project or Innovation Coordinator.
+
+These are proposed demonstration personas, not confirmed final institutional job titles.
+
+The role selector should let evaluators preview different user experiences without logging out or connecting to an authentication server.
+
+When the selected role changes:
+
+- Update the displayed user name and role label.
+- Change relevant dashboard summaries where appropriate.
+- Adjust visible navigation or action controls.
+- Hide or disable actions that the selected demonstration role should not perform.
+- Show a brief explanation when an action is unavailable because of the simulated role.
+
+Do not treat frontend role simulation as real security. Explain in code comments that production authorization must be enforced on the backend.
+
+## Configurable workflow
+
+Where feasible, provide simple mock configuration controls for:
+
+- Available submission categories.
+- Optional documentation requirements.
+- Available sectors.
+- Reviewer directory.
+- IP routing availability.
+
+Avoid building a complicated workflow engine. The goal is to demonstrate configurability in the UI, not to invent the final business rules.
+
+---
+
+# 17. OPTIONAL PUBLIC LANDING PAGE
+
+Create a refined public-facing landing page at the root route if appropriate.
+
+This page should introduce the innovation management platform before users enter the internal dashboard.
+
+Use a premium, minimal visual design.
+
+Include:
+
+- Brand identity.
+- Hero heading: "From Ideas to Impact."
+- Supporting description about documenting, reviewing, refining, and advancing innovation.
+- Primary action: "Explore the Platform."
+- Secondary action: "How It Works."
+- A clear workflow illustration.
+- Student Projects and General Innovations feature sections.
+- An explanation of the refinement-first philosophy.
+- A small section explaining transparent tracking and institutional collaboration.
+- A refined footer.
+
+Use an original visual treatment such as a workflow diagram, abstract geometric composition, or carefully arranged UI preview.
+
+Avoid generic stock-photo-heavy layouts.
+
+The landing page is optional if it would compromise the quality or completeness of the core application. The internal dashboard and workflow pages have priority.
+
+If the landing page is implemented, ensure there is an obvious way to enter the demo application.
+
+---
+
+# 18. DEMONSTRATION DATA
+
+Seed the application with realistic fictional records.
+
+Create at least 12 sample submissions covering a variety of categories and stages.
+
+Suggested examples:
+
+1. Smart Irrigation Monitoring System — Student Project — Under Review.
+2. Community Waste-to-Energy Initiative — General Innovation — Fact-Finding.
+3. Maternal Health Follow-up Platform — Student Project — Refinement Requested.
+4. Solar-Powered Cold Storage — General Innovation — Ready for Routing.
+5. Campus Accessibility Mapping — Student Project — Awaiting Documentation.
+6. Digital Heritage Preservation Project — General Innovation — Under Review.
+7. Low-Cost Water Quality Monitor — Student Project — Received.
+8. Biodegradable Packaging Innovation — General Innovation — Further Handling.
+9. Rural Learning Resource Platform — Student Project — In Assessment.
+10. Affordable Farm Produce Tracker — General Innovation — Refinement Requested.
+11. Energy-Efficient Classroom Lighting — Student Project — Registered.
+12. Community Emergency Alert System — General Innovation — Completed.
+
+All names and project details are fictional examples for the prototype.
+
+Use consistent records across dashboards, tables, charts, routing histories, document lists, and activity feeds.
+
+Each submission should contain appropriate fields for its category.
+
+Student projects should have illustrative student project codes. General innovations should not automatically have those codes.
+
+Create realistic fictional reviewers, officers, sectors, documents, feedback items, and activity events.
+
+Avoid contradictory information, such as a submission marked completed while simultaneously awaiting its first review, unless the workflow explicitly explains the discrepancy.
+
+---
+
+# 19. DATA MODEL AND STATE MANAGEMENT
+
+Create typed frontend models for:
+
+- Submission.
+- SubmissionCategory.
+- WorkflowStage.
+- ProjectCode.
+- Submitter.
+- Reviewer.
+- Review.
+- FeedbackItem.
+- SupportingDocument.
+- RoutingRecord.
+- ActivityEvent.
+- DemonstrationUser.
+- Sector.
+- RevisionRecord.
+
+Use clear TypeScript interfaces or discriminated unions where useful.
+
+Example submission structure:
+
+- id
+- title
+- summary
+- purpose
+- problemStatement
+- intendedOutcome
+- category
+- projectCode, optional where appropriate
+- submitter
+- responsibleInitiatingOfficer
+- receivingOfficer
+- currentStage
+- assignedSector
+- assignedReviewerIds
+- documents
+- reviews
+- feedbackItems
+- routingHistory
+- revisionHistory
+- activityHistory
+- createdAt
+- updatedAt
+
+Keep the data model flexible enough to represent the two submission pathways without forcing every field to be mandatory.
+
+Implement reusable helper functions for:
+
+- Generating demo IDs.
+- Creating illustrative student project codes.
+- Filtering submissions.
+- Calculating dashboard metrics.
+- Recording activity events.
+- Updating workflow stages.
+- Persisting prototype data.
+
+Avoid duplicating mock data separately across every page.
+
+---
+
+# 20. RECOMMENDED PROJECT STRUCTURE
+
+Organize the code into reusable modules.
+
+A suggested structure:
+
+src/
+  app/
+    App.tsx
+    router.tsx
+    providers.tsx
+  components/
+    layout/
+      AppShell.tsx
+      Sidebar.tsx
+      Topbar.tsx
+      MobileNavigation.tsx
+    ui/
+    submissions/
+      SubmissionTable.tsx
+      SubmissionStatusBadge.tsx
+      SubmissionFilters.tsx
+      SubmissionSummary.tsx
+      WorkflowStepper.tsx
+    documents/
+      DocumentCard.tsx
+      DocumentUpload.tsx
+    reviews/
+      ReviewCard.tsx
+      ReviewForm.tsx
+    routing/
+      RoutingForm.tsx
+      RoutingHistory.tsx
+    activity/
+      ActivityTimeline.tsx
+    dashboard/
+      MetricCard.tsx
+      WorkflowOverview.tsx
+  pages/
+    LandingPage.tsx
+    DashboardPage.tsx
+    SubmissionsPage.tsx
+    RegisterSubmissionPage.tsx
+    SubmissionDetailsPage.tsx
+    FactFindingPage.tsx
+    ReviewsPage.tsx
+    RoutingPage.tsx
+    RefinementPage.tsx
+    DocumentsPage.tsx
+    ActivityHistoryPage.tsx
+    AnalyticsPage.tsx
+    SettingsPage.tsx
+    NotFoundPage.tsx
+  data/
+    mockSubmissions.ts
+    mockUsers.ts
+    mockDocuments.ts
+    mockActivity.ts
+  hooks/
+  lib/
+    storage.ts
+    metrics.ts
+    workflow.ts
+    validation.ts
+  types/
+    index.ts
+  styles/
+    globals.css
+
+You may adjust the structure if a cleaner implementation is possible.
+
+Do not put the entire application into one giant React component.
+
+---
+
+# 21. RESPONSIVE DESIGN
+
+The application must work well on:
+
+- Desktop computers.
+- Laptops.
+- Tablets.
+- Mobile phones.
+
+Desktop:
+
+- Persistent or collapsible sidebar.
+- Multi-column dashboard.
+- Full data tables.
+- Two-column detail layouts.
+
+Tablet:
+
+- Collapsible navigation.
+- Adapted card grids.
+- Condensed table columns.
+- Accessible filters.
+
+Mobile:
+
+- Drawer or compact navigation.
+- Single-column cards.
+- Horizontally scrollable tables when necessary.
+- Stacked form layouts.
+- Full-width action buttons where appropriate.
+- Responsive workflow timelines.
+- Properly sized modals and dropdowns.
+
+Do not merely shrink the desktop design. Reorganize content intelligently for small screens.
+
+Prevent horizontal page overflow and ensure that all controls remain usable on touch devices.
+
+---
+
+# 22. ACCESSIBILITY AND USABILITY
+
+Implement:
+
+- Semantic HTML.
+- Keyboard-accessible navigation.
+- Visible focus indicators.
+- Accessible modal behavior.
+- Form labels and useful validation messages.
+- Sufficient color contrast.
+- Status indicators that do not rely on color alone.
+- Descriptive icon buttons.
+- Screen-reader-friendly interaction states.
+- Reduced-motion support.
+- Appropriate error and success messages.
+
+Keep labels and navigation understandable to non-technical institutional staff.
+
+Avoid unnecessary technical jargon in the visible interface.
+
+---
+
+# 23. FUNCTIONAL ACCEPTANCE CRITERIA
+
+The implementation is complete only when the following requirements work in the browser:
+
+1. The application starts successfully in Replit.
+2. Every major navigation item opens the correct page.
+3. The dashboard displays realistic, internally consistent mock metrics.
+4. Search and submission filters work.
+5. Users can open submission detail pages.
+6. The multi-step registration form validates required fields.
+7. The form conditionally displays student-specific fields.
+8. A registered submission appears in the relevant tables.
+9. Student projects receive illustrative project codes.
+10. General innovations follow their separate pathway.
+11. Local document selection and removal work.
+12. Fact-finding assessments can be recorded.
+13. Reviewer assignments can be demonstrated.
+14. Review comments and recommendations can be added.
+15. Routing actions update the mock record.
+16. Refinement requests and resubmissions update the record.
+17. Activity history reflects actions performed in the prototype.
+18. Dashboard filters and navigation remain functional.
+19. The role simulator changes the visible interface appropriately.
+20. Reports display charts based on seeded mock data.
+21. CSV export works if implemented.
+22. Local state persists across refreshes where practical.
+23. The interface works on mobile, tablet, and desktop.
+24. No major buttons, links, forms, or modal actions are inert.
+25. No uncaught console errors prevent the application from working.
+26. There are no broken image assets or nonexistent routes.
+27. A reset-demo-data control restores the initial seeded state.
+
+---
+
+# 24. IMPLEMENTATION STRATEGY
+
+Build the application in a deliberate sequence.
+
+Phase 1: Foundation
+- Inspect the existing project.
+- Set up or repair the frontend stack.
+- Establish the visual design system.
+- Create typed models and consistent seeded data.
+- Build the application shell, sidebar, topbar, and routing.
+
+Phase 2: Core screens
+- Dashboard.
+- All Submissions.
+- Submission Details.
+- Register Submission.
+
+Phase 3: Workflow screens
+- Fact-Finding.
+- Reviews.
+- Routing & Assignments.
+- Refinement.
+- Documents.
+- Activity History.
+
+Phase 4: Management and polish
+- Reports & Analytics.
+- Settings and role simulation.
+- Optional landing page.
+- Responsive improvements.
+- Accessibility.
+- Animation and visual polish.
+
+Phase 5: Verification
+- Run the application.
+- Fix TypeScript errors.
+- Fix runtime errors.
+- Test all major navigation paths.
+- Test registration and workflow actions.
+- Test browser refresh and persistence.
+- Test mobile layouts.
+- Remove dead buttons and broken links.
+- Confirm that the demo can be explored without external credentials.
+
+You may work in smaller implementation steps, but the final result must be a coherent application rather than a partially implemented set of pages.
+
+---
+
+# 25. FINAL QUALITY REQUIREMENTS
+
+Prioritize the following:
+
+1. Excellent visual design.
+2. Complete, connected frontend workflows.
+3. Consistent and believable demonstration data.
+4. Clear distinction between student projects and general innovations.
+5. Role-aware interfaces.
+6. Constructive refinement rather than rejection-first design.
+7. Clear routing and activity history.
+8. Responsive layouts.
+9. Maintainable React and TypeScript code.
+10. Reliable functionality.
+
+Avoid:
+
+- A generic template dashboard with different colors.
+- Excessive gradients and shadows.
+- Too many oversized cards.
+- Fake backend integrations.
+- Hard-coded final organizational rules that have not been confirmed.
+- Five fixed reviewers with an invented approval hierarchy.
+- Making recommendation letters mandatory for every submission.
+- Assigning student project codes to all general innovations.
+- Allowing students to initiate the official brief contrary to the meeting notes.
+- Placeholder actions that do nothing.
+- Fake success messages suggesting that real people were notified.
+- Overly complex animation that interferes with usability.
+
+The product should feel like a credible institutional innovation management platform designed by an experienced product team.
+
+**Begin by inspecting the existing Replit project and then implement the application. Do not stop after producing a plan or a static mockup. Build the working frontend, run it, verify the major interactions, and fix any issues you encounter.**

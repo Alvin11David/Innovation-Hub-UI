@@ -1,0 +1,28 @@
+kind = "web"
+previewPath = "/"
+title = "Innovation Hub"
+description = "A frontend-only institutional workspace for registering and tracking student projects and general innovations through review, refinement, and routing."
+version = "1.0.0"
+id = "artifacts/innovation-hub"
+router = "path"
+
+[[services]]
+name = "web"
+paths = [ "/" ]
+localPort = 21957
+
+[services.development]
+run = "pnpm --filter @workspace/innovation-hub run dev"
+
+[services.production]
+build = [ "pnpm", "--filter", "@workspace/innovation-hub", "run", "build" ]
+serve = "static"
+publicDir = "artifacts/innovation-hub/dist/public"
+
+[[services.production.rewrites]]
+from = "/*"
+to = "/index.html"
+
+[services.env]
+PORT = "21957"
+BASE_PATH = "/"
