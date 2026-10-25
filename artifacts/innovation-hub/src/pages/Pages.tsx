@@ -40,6 +40,16 @@ function Table({ rows, compact=false }: {rows:Submission[];compact?:boolean}) {
 function Metric({label,value,note,icon,accent=false}:{label:string;value:string|number;note:string;icon:ReactNode;accent?:boolean}) {
   return <div className={`metric-card ${accent?'metric-accent':''}`}><div className="metric-top"><span>{label}</span><span className="metric-icon">{icon}</span></div><div className="metric-value">{value}</div><div className="metric-note">{note}</div><div className="metric-line"><i style={{width:`${String(value).length*12+28}%`}}/></div></div>;
 }
+function DashboardMetric({variant,label,value,note,icon,visual}:{variant:'total'|'review'|'refinement'|'complete';label:string;value:string|number;note:string;icon:ReactNode;visual:ReactNode}) {
+  return <article className={`metric-card dashboard-metric metric-${variant}`}>
+    <div className="dashboard-metric-copy">
+      <div className="metric-top"><span>{label}</span><span className="metric-icon">{icon}</span></div>
+      <div className="metric-value" data-testid={`dashboard-metric-${variant}`}>{value}</div>
+      <div className="metric-note">{note}</div>
+    </div>
+    <div className="dashboard-metric-visual">{visual}</div>
+  </article>;
+}
 function SectionHead({title,detail,link}:{title:string;detail?:string;link?:{label:string;href:string}}) {
   return <div className="section-head"><div><h2>{title}</h2>{detail&&<p>{detail}</p>}</div>{link&&<Link href={link.href} className="text-link">{link.label}<ArrowRight size={14}/></Link>}</div>;
 }
@@ -47,14 +57,30 @@ export function Dashboard() {
   const {state}=useHub(); const list=state.submissions;
   const hour=new Date().getHours(); const greeting=hour<12?'Good morning':hour<17?'Good afternoon':'Good evening';
   const month=new Intl.DateTimeFormat('en-GB',{month:'long'}).format(new Date());
+  const studentCount=list.filter(s=>s.category==='Student Project').length;
+  const innovationCount=list.filter(s=>s.category==='General Innovation').length;
+  const studentShare=list.length?Math.round(studentCount/list.length*100):0;
   const reviewCount=list.filter(s=>s.stage==='Under Review').length;
   const refinement=list.filter(s=>s.stage==='Refinement Requested').length;
   const completed=list.filter(s=>s.stage==='Completed').length;
+  const completionShare=list.length?Math.round(completed/list.length*100):0;
+  const reviewStages=[
+    {label:'F/F',stage:'Fact-Finding'},
+    {label:'REV',stage:'Under Review'},
+    {label:'REF',stage:'Refinement Requested'},
+    {label:'ROUTE',stage:'Awaiting Routing'},
+  ].map(item=>({...item,count:list.filter(s=>s.stage===item.stage).length}));
+  const stageMax=Math.max(1,...reviewStages.map(item=>item.count));
   const attention=list.filter(s=>['Refinement Requested','Awaiting Routing','Fact-Finding'].includes(s.stage)||s.docs.length===0).slice(0,5);
   const activity=list.flatMap(s=>s.activities.map(a=>({...a,title:s.title,id:s.id}))).sort((a,b)=>b.date.localeCompare(a.date)).slice(0,4);
   return <div className="page-enter">
     <div className="welcome-banner"><div className="welcome-copy"><div className="eyebrow">{dashboardDate} <span className="eyebrow-dot"/></div><h1>{greeting}, {state.displayName.split(' ')[0]}.</h1><p>Here's what's moving across your innovation and project pipeline.</p><Link href="/register" className="btn btn-primary" data-testid="link-register-dashboard">Register a submission <ArrowRight size={16}/></Link></div><div className="welcome-art" aria-hidden="true"><div className="art-ring ring-one"/><div className="art-ring ring-two"/><div className="art-core"><Sparkles size={26}/></div><span className="art-caption">IDEAS IN MOTION</span></div></div>
-    <div className="metric-grid"><Metric label="Total submissions" value={list.length} note="Across both pathways" icon={<FolderOpen size={17}/>}/><Metric label="Awaiting review" value={reviewCount} note="Assigned for consideration" icon={<ClipboardCheck size={17}/>} accent/><Metric label="Refinement requested" value={refinement} note="Guided next steps open" icon={<Sparkles size={17}/>}/><Metric label="Completed this month" value={completed} note={`Recorded in ${month}`} icon={<CheckCircle2 size={17}/>}/></div>
+    <div className="metric-grid dashboard-metrics">
+      <DashboardMetric variant="total" label="Total submissions" value={list.length} note={`${studentCount} projects · ${innovationCount} ideas`} icon={<FolderOpen size={17}/>} visual={<div className="metric-ring" style={{'--ring-share':`${studentShare}%`} as CSSProperties} role="img" aria-label={`${studentShare}% of submissions are student projects`}><span><b>{studentShare}%</b><small>projects</small></span></div>}/>
+      <DashboardMetric variant="review" label="Awaiting review" value={reviewCount} note="Assigned for consideration" icon={<ClipboardCheck size={17}/>} visual={<div className="metric-bars" role="img" aria-label="Current submissions across fact-finding, review, refinement, and routing">{reviewStages.map((item,index)=><div className="metric-bar-group" key={item.stage}><i className={`metric-bar-color-${index}`} style={{height:`${Math.max(10,item.count/stageMax*100)}%`}}/><small>{item.label}</small></div>)}</div>}/>
+      <DashboardMetric variant="refinement" label="Refinement requested" value={refinement} note="Constructive next steps open" icon={<Sparkles size={17}/>} visual={<div className="refinement-flow" aria-label="Feedback, improve, resubmit"><span>01</span><i/><span>02</span><i/><span>03</span><small>FEEDBACK · IMPROVE · RESUBMIT</small></div>}/>
+      <DashboardMetric variant="complete" label="Completed this month" value={completed} note={`Recorded in ${month}`} icon={<CheckCircle2 size={17}/>} visual={<div className="metric-ring metric-ring-dark" style={{'--ring-share':`${completionShare}%`} as CSSProperties} role="img" aria-label={`${completionShare}% of current submissions are completed`}><span><b>{completionShare}%</b><small>complete</small></span></div>}/>
+    </div>
     <div className="dashboard-main-grid">
       <section className="panel workflow-panel"><SectionHead title="Pipeline at a glance" detail="A flexible guide, not a fixed sequence."/><div className="pipeline">{coreStages.slice(0,6).map((stage,i)=>{const count=list.filter(s=>s.stage===stage).length;return <Link href={`/submissions?stage=${encodeURIComponent(stage)}`} key={stage} className={`pipeline-step ${count?'has-count':''}`} data-testid={`link-stage-${stage.replaceAll(' ','-')}`}><span className="pipeline-index">0{i+1}</span><b>{stage}</b><strong>{count.toString().padStart(2,'0')}</strong><span className="pipeline-track"><i style={{width:`${Math.max(12,count*25)}%`}}/></span></Link>})}</div><div className="workflow-foot"><span><span className="legend-dot"/>{list.filter(s=>s.category==='Student Project').length} student projects</span><span><span className="legend-dot dot-chartreuse"/>{list.filter(s=>s.category==='General Innovation').length} general innovations</span><Link href="/settings">Configure pathway <ArrowUpRight size={13}/></Link></div></section>
       <section className="panel attention-panel"><SectionHead title="Needs attention" detail={`${attention.length} items with an open next step`}/><div className="attention-list">{attention.map((s,i)=><Link href={`/submissions/${s.id}`} key={s.id} data-testid={`attention-${s.id}`} className="attention-row"><span className={`attention-number ${i===0?'attention-urgent':''}`}>{String(i+1).padStart(2,'0')}</span><span className="attention-copy"><b>{s.title}</b><small>{s.stage==='Awaiting Routing'?'Awaiting a destination':s.stage==='Refinement Requested'?'Updated information requested':s.stage==='Fact-Finding'?'Assessment is in progress':'Supporting documents incomplete'}</small></span><ChevronRight size={16}/></Link>)}{!attention.length&&<p className="muted">Nothing needs attention right now.</p>}</div><Link href="/fact-finding" className="attention-link">Open work queues <ArrowRight size={14}/></Link></section>
