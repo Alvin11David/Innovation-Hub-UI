@@ -2,7 +2,7 @@ import { QueryClient, QueryClientProvider } from '@tanstack/react-query';
 import { TooltipProvider } from '@/components/ui/tooltip';
 import { Shell } from '@/components/Shell';
 import { HubProvider } from '@/lib/store';
-import { ActivityPage, Dashboard, DetailPage, DocumentsPage, QueuePage, RegisterPage, ReportsPage, SettingsPage, SubmissionsPage } from '@/pages/Pages';
+import { ActivityPage, Dashboard, DetailPage, DocumentsPage, QueuePage, ReceptionPage, RegisterPage, ReportsPage, SettingsPage, SubmissionsPage } from '@/pages/Pages';
 import { Link, Route, Switch, Router as WouterRouter } from 'wouter';
 import './index.css';
 import './app.css';
@@ -17,6 +17,7 @@ function AppRoutes() {
     <Route path="/submissions/innovations" component={()=><SubmissionsPage preset="General Innovation"/>}/>
     <Route path="/submissions/:id" component={DetailPage}/>
     <Route path="/register" component={RegisterPage}/>
+    <Route path="/reception" component={ReceptionPage}/>
     <Route path="/fact-finding" component={()=><QueuePage kind="fact"/>}/>
     <Route path="/reviews" component={()=><QueuePage kind="reviews"/>}/>
     <Route path="/routing" component={()=><QueuePage kind="routing"/>}/>
