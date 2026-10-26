@@ -56,5 +56,12 @@ export function Shell({ children }: { children: ReactNode }) {
       <main className="main-content">{children}</main>
       <footer className="page-footer"><span>INNOVATION HUB <i>·</i> FRONTEND DEMO</span><span>Illustrative workflow · Data stays in this browser</span></footer>
     </div>
+    <nav className="mobile-dock" aria-label="Quick navigation">
+      <Link href="/" className={`dock-link ${location==='/'?'active':''}`} aria-label="Overview" data-testid="mobile-nav-overview" onClick={()=>setDrawer(false)}><Gauge size={19}/><span>Home</span></Link>
+      <Link href="/submissions" className={`dock-link ${location.startsWith('/submissions')?'active':''}`} aria-label="Submissions" data-testid="mobile-nav-submissions" onClick={()=>setDrawer(false)}><FolderKanban size={19}/><span>Records</span></Link>
+      <Link href="/register" className="dock-create" aria-label="Register submission" data-testid="mobile-nav-register"><span><span>+</span></span></Link>
+      <Link href="/reviews" className={`dock-link ${location==='/reviews'?'active':''}`} aria-label="Reviews" data-testid="mobile-nav-reviews" onClick={()=>setDrawer(false)}><ListChecks size={19}/><span>Reviews</span></Link>
+      <button className={`dock-link ${drawer?'active':''}`} aria-label="Open all sections" data-testid="mobile-nav-more" onClick={()=>setDrawer(!drawer)}><Menu size={19}/><span>More</span></button>
+    </nav>
   </div>;
 }

@@ -1,0 +1,45 @@
+@import url('https://fonts.googleapis.com/css2?family=DM+Mono:wght@400;500&family=Manrope:wght@400;500;600;700;800&family=Newsreader:opsz,wght@6..72,500;6..72,600&display=swap');
+@import './app.css';
+
+:root {
+  --background: 60 20% 97%;
+  --foreground: 160 8% 12%;
+  --card: 0 0% 100%;
+  --card-foreground: 160 8% 12%;
+  --card-border: 72 10% 88%;
+  --popover: 0 0% 100%;
+  --popover-foreground: 160 8% 12%;
+  --popover-border: 72 10% 88%;
+  --primary: 161 63% 25%;
+  --primary-foreground: 60 20% 98%;
+  --secondary: 72 22% 92%;
+  --secondary-foreground: 160 8% 16%;
+  --muted: 72 14% 94%;
+  --muted-foreground: 160 5% 46%;
+  --accent: 72 40% 88%;
+  --accent-foreground: 160 30% 19%;
+  --destructive: 2 56% 48%;
+  --destructive-foreground: 0 0% 100%;
+  --border: 72 10% 87%;
+  --input: 72 10% 84%;
+  --ring: 161 63% 25%;
+  --sidebar: 60 18% 95%;
+  --sidebar-foreground: 160 8% 17%;
+  --sidebar-border: 72 10% 87%;
+  --sidebar-primary: 161 63% 25%;
+  --sidebar-primary-foreground: 60 20% 98%;
+  --sidebar-accent: 72 24% 90%;
+  --sidebar-accent-foreground: 160 20% 18%;
+  --sidebar-ring: 161 63% 25%;
+  --font-sans: 'Manrope', sans-serif;
+  --font-serif: 'Newsreader', Georgia, serif;
+  --font-mono: 'DM Mono', monospace;
+  --radius: 0.65rem;
+}
+
+* { box-sizing: border-box; }
+html { scroll-behavior: smooth; }
+body { margin: 0; background: #f8f8f5; color: #202522; font-family: var(--font-sans); -webkit-font-smoothing: antialiased; }
+button, input, select, textarea { font: inherit; }
+button, a, input, select, textarea { outline-color: #176b52; }
+button { cursor: pointer; }
