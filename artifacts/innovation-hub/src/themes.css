@@ -4,10 +4,10 @@
  */
 :root {
   color-scheme: light;
-  --theme-bg: #f1f4ee;
-  --theme-surface: #f6f8f3;
-  --theme-surface-raised: #eaf0e8;
-  --theme-border: #d9e2d8;
+  --theme-bg: #f0f3ed;
+  --theme-surface: #e5ece5;
+  --theme-surface-raised: #d9e4da;
+  --theme-border: #cbd8cd;
   --theme-ink: #202a23;
   --theme-muted: #718075;
   --theme-forest: #176b52;
@@ -562,4 +562,1099 @@ html[data-theme="dark"] .mobile-dock .dock-link {
     background: #18211b;
     border-color: #35463a;
   }
+}
+
+/*
+ * Complete surface pass.
+ * The app's original component CSS contains many literal light-mode colors;
+ * these theme-scoped rules keep those surfaces in step with the Shell toggle.
+ */
+:root,
+html[data-theme="light"] {
+  --background: 145 20% 93%;
+  --foreground: 150 14% 16%;
+  --card: 105 24% 91%;
+  --card-foreground: 150 14% 16%;
+  --card-border: 105 16% 84%;
+  --popover: 105 24% 91%;
+  --popover-foreground: 150 14% 16%;
+  --popover-border: 105 16% 86%;
+  --secondary: 110 18% 90%;
+  --secondary-foreground: 150 14% 20%;
+  --muted: 110 16% 91%;
+  --muted-foreground: 145 9% 40%;
+  --accent: 104 27% 86%;
+  --accent-foreground: 151 32% 22%;
+  --border: 105 14% 84%;
+  --input: 105 14% 81%;
+  --ring: 161 63% 25%;
+  --theme-input: #f0f4ee;
+  --theme-soft: #e9efe8;
+  --theme-strong: #173d2e;
+  --theme-strong-ink: #f0f6ef;
+}
+
+html[data-theme="dark"] {
+  --background: 150 13% 8%;
+  --foreground: 135 18% 91%;
+  --card: 140 13% 12%;
+  --card-foreground: 135 18% 91%;
+  --card-border: 140 12% 23%;
+  --popover: 140 13% 12%;
+  --popover-foreground: 135 18% 91%;
+  --popover-border: 140 12% 23%;
+  --primary: 148 36% 47%;
+  --primary-foreground: 140 22% 7%;
+  --secondary: 142 16% 18%;
+  --secondary-foreground: 135 18% 91%;
+  --muted: 142 14% 17%;
+  --muted-foreground: 135 11% 68%;
+  --accent: 142 22% 22%;
+  --accent-foreground: 135 20% 91%;
+  --border: 140 12% 23%;
+  --input: 140 12% 26%;
+  --ring: 148 36% 47%;
+  --theme-input: #141d17;
+  --theme-soft: #1b2820;
+  --theme-strong: #214d38;
+  --theme-strong-ink: #e5f0e6;
+}
+
+html[data-theme="light"] body,
+html[data-theme="light"] .app-shell,
+html[data-theme="light"] .main-column,
+html[data-theme="light"] .main-content,
+html[data-theme="light"] .page-footer {
+  color: var(--theme-ink);
+  background-color: var(--theme-bg);
+}
+
+html[data-theme="dark"] body,
+html[data-theme="dark"] .app-shell,
+html[data-theme="dark"] .main-column,
+html[data-theme="dark"] .main-content,
+html[data-theme="dark"] .page-footer {
+  color: var(--theme-ink);
+  background-color: var(--theme-bg);
+}
+
+/* Muted, green-tinted surfaces for every shared workspace card. */
+html[data-theme="light"] .panel,
+html[data-theme="light"] .card,
+html[data-theme="light"] .metric-card:not(.metric-complete):not(.metric-refinement),
+html[data-theme="light"] .filter-panel,
+html[data-theme="light"] .register-panel,
+html[data-theme="light"] .settings-panel,
+html[data-theme="light"] .queue-list-panel,
+html[data-theme="light"] .queue-workspace,
+html[data-theme="light"] .table-panel,
+html[data-theme="light"] .chart-panel,
+html[data-theme="light"] .timeline-panel,
+html[data-theme="light"] .reset-panel,
+html[data-theme="light"] .completion-wrap,
+html[data-theme="light"] .stepper-side,
+html[data-theme="light"] .submissions-panel,
+html[data-theme="light"] .detail-panel,
+html[data-theme="light"] .side-panel,
+html[data-theme="light"] .activity-panel,
+html[data-theme="light"] .workflow-panel,
+html[data-theme="light"] .attention-panel {
+  color: var(--theme-ink);
+  background-color: var(--theme-surface);
+  border-color: var(--theme-border);
+}
+
+html[data-theme="light"] .metric-total,
+html[data-theme="light"] .metric-review {
+  color: var(--theme-ink);
+  background: linear-gradient(145deg, #f4f7f2, #e8efe8);
+  border-color: var(--theme-border);
+}
+
+html[data-theme="light"] .metric-refinement {
+  color: #edf5ed;
+  background: linear-gradient(145deg, #214f3e, #173c30);
+  border-color: #214f3e;
+}
+
+html[data-theme="light"] .metric-refinement .metric-top,
+html[data-theme="light"] .metric-refinement .metric-value,
+html[data-theme="light"] .metric-refinement .metric-note {
+  color: #edf5ed;
+}
+
+html[data-theme="light"] .metric-refinement .metric-icon {
+  color: #d9f27a;
+  background: rgb(255 255 255 / 12%);
+}
+
+html[data-theme="light"] .metric-complete,
+html[data-theme="light"] .workflow-panel {
+  color: #e6eee7;
+  background: #171c19;
+  border-color: #29372e;
+}
+
+html[data-theme="light"] .attention-panel {
+  color: #204631;
+  background: #e5eee2;
+  border-color: #d4e2d3;
+}
+
+/* Tables read as a single tinted work surface, not a white sheet. */
+html[data-theme="light"] .table-wrap,
+html[data-theme="light"] .data-table,
+html[data-theme="light"] .data-table tbody tr,
+html[data-theme="light"] .data-table tbody tr:nth-child(even) {
+  background-color: var(--theme-surface);
+}
+
+html[data-theme="light"] .data-table th {
+  color: #456551;
+  background: #e4ece3;
+  border-color: #d5e0d5;
+}
+
+html[data-theme="light"] .data-table td {
+  color: #28372d;
+  border-color: #e0e8de;
+}
+
+html[data-theme="light"] .data-table tbody tr:hover {
+  background: #e3ede3;
+}
+
+html[data-theme="light"] .table-titlebar {
+  color: #f1f7ef;
+  background: var(--theme-forest-deep);
+  border-color: var(--theme-forest-deep);
+}
+
+html[data-theme="light"] .table-titlebar span:last-child { color: #cfddd1; }
+
+/* Nested content surfaces and cards used across detail, queues, reports, and settings. */
+html[data-theme="light"] .pipeline-step,
+html[data-theme="light"] .mini-event,
+html[data-theme="light"] .document-row,
+html[data-theme="light"] .type-card,
+html[data-theme="light"] .refinement-card,
+html[data-theme="light"] .routing-history-box,
+html[data-theme="light"] .route-record,
+html[data-theme="light"] .ip-record,
+html[data-theme="light"] .requirement-block,
+html[data-theme="light"] .checklist-row,
+html[data-theme="light"] .activity-row,
+html[data-theme="light"] .version-row,
+html[data-theme="light"] .review-record,
+html[data-theme="light"] .review-summary,
+html[data-theme="light"] .upload-zone,
+html[data-theme="light"] .selected-file,
+html[data-theme="light"] .summary-band,
+html[data-theme="light"] .prototype-caveat,
+html[data-theme="light"] .report-caveat,
+html[data-theme="light"] .settings-tip,
+html[data-theme="light"] .operations-panel,
+html[data-theme="light"] .operations-metric,
+html[data-theme="light"] .operations-record-card,
+html[data-theme="light"] .operations-session-card,
+html[data-theme="light"] .operations-partner-card,
+html[data-theme="light"] .operations-asset-card,
+html[data-theme="light"] .operations-manager,
+html[data-theme="light"] .operations-upcoming-item {
+  color: var(--theme-ink);
+  background-color: var(--theme-surface);
+  border-color: var(--theme-border);
+}
+
+html[data-theme="light"] .operations-metric-attention {
+  background: #edf1df;
+  border-color: #d9dfc5;
+}
+
+html[data-theme="light"] .operations-form {
+  color: var(--theme-ink);
+  background: #eaf0e8;
+  border-color: var(--theme-border);
+}
+
+html[data-theme="light"] .operations-trainee-notice,
+html[data-theme="light"] .operations-partner-rule,
+html[data-theme="light"] .operations-equipment-rule,
+html[data-theme="light"] .operations-policy-callout,
+html[data-theme="light"] .operations-published-details {
+  color: #315b42;
+  background: #e7efe5;
+  border-color: #d5e1d3;
+}
+
+html[data-theme="light"] .operations-overview-banner {
+  background: radial-gradient(ellipse at 87% 42%, #d0dfd0 0, #e5eee4 39%, transparent 40%), #e5eee4;
+  border-color: #d5e2d4;
+}
+
+/* Inputs, selects, popovers and quiet controls follow the active surface. */
+html[data-theme="light"] input,
+html[data-theme="light"] select,
+html[data-theme="light"] textarea,
+html[data-theme="light"] .global-search,
+html[data-theme="light"] .search-input,
+html[data-theme="light"] .sort-control,
+html[data-theme="light"] .operations-field input,
+html[data-theme="light"] .operations-field select,
+html[data-theme="light"] .operations-field textarea,
+html[data-theme="light"] .operations-mou-form input,
+html[data-theme="light"] .operations-mou-form select,
+html[data-theme="light"] .operations-asset-form input,
+html[data-theme="light"] .operations-asset-form select,
+html[data-theme="light"] .operations-asset-form textarea {
+  color: #34453a;
+  background-color: var(--theme-input);
+  border-color: #d6e0d5;
+}
+
+html[data-theme="light"] .profile-popover,
+html[data-theme="light"] .search-results,
+html[data-theme="light"] .top-popover,
+html[data-theme="light"] .notification-popover {
+  color: var(--theme-ink);
+  background: var(--theme-surface);
+  border-color: var(--theme-border);
+}
+
+html[data-theme="light"] .search-result,
+html[data-theme="light"] .role-choice,
+html[data-theme="light"] .notification-item {
+  color: #28372d;
+}
+
+html[data-theme="light"] .search-result:hover,
+html[data-theme="light"] .role-choice:hover,
+html[data-theme="light"] .notification-item:hover {
+  color: #193f30;
+  background: #e8efe7;
+}
+
+html[data-theme="light"] .btn-outline,
+html[data-theme="light"] .operations-button-outline,
+html[data-theme="light"] .document-actions button,
+html[data-theme="light"] .side-actions button,
+html[data-theme="light"] .operations-review-buttons button,
+html[data-theme="light"] .operations-icon-button {
+  color: #3b5143;
+  background: #eaf0e9;
+  border-color: #d4dfd4;
+}
+
+html[data-theme="light"] .btn-outline:hover,
+html[data-theme="light"] .operations-button-outline:hover,
+html[data-theme="light"] .document-actions button:hover,
+html[data-theme="light"] .side-actions button:hover,
+html[data-theme="light"] .operations-review-buttons button:hover {
+  color: #15583f;
+  background: #dfeadf;
+  border-color: #aec4b0;
+}
+
+html[data-theme="light"] .operations-review-buttons button:first-child {
+  color: #306347;
+  background: #e0eddf;
+  border-color: #c7dcc8;
+}
+
+html[data-theme="light"] .operations-page {
+  --ops-ink: #26332b;
+  --ops-muted: #667469;
+  --ops-line: #d9e2d8;
+  --ops-soft: #f0f4ee;
+  --ops-green: #176b52;
+  --ops-pale: #e4ece2;
+  color: var(--theme-ink);
+}
+
+html[data-theme="light"] .mobile-dock {
+  color: var(--theme-ink);
+  background: #eaf0e9;
+  border-color: var(--theme-border);
+}
+
+/* Dark mode uses near-black foundations with layered forest work surfaces. */
+html[data-theme="dark"] .hub-sidebar {
+  color: var(--theme-ink);
+  background: #121a15;
+  border-color: var(--theme-border);
+}
+
+html[data-theme="dark"] .main-column,
+html[data-theme="dark"] .main-content,
+html[data-theme="dark"] .page-footer {
+  background-color: var(--theme-bg);
+}
+
+html[data-theme="dark"] .topbar {
+  color: var(--theme-ink);
+  background: rgb(16 22 18 / 94%);
+  border-color: var(--theme-border);
+}
+
+html[data-theme="dark"] .panel,
+html[data-theme="dark"] .card,
+html[data-theme="dark"] .metric-card:not(.metric-complete):not(.metric-refinement),
+html[data-theme="dark"] .filter-panel,
+html[data-theme="dark"] .register-panel,
+html[data-theme="dark"] .settings-panel,
+html[data-theme="dark"] .queue-list-panel,
+html[data-theme="dark"] .queue-workspace,
+html[data-theme="dark"] .table-panel,
+html[data-theme="dark"] .chart-panel,
+html[data-theme="dark"] .timeline-panel,
+html[data-theme="dark"] .reset-panel,
+html[data-theme="dark"] .completion-wrap,
+html[data-theme="dark"] .stepper-side,
+html[data-theme="dark"] .submissions-panel,
+html[data-theme="dark"] .detail-panel,
+html[data-theme="dark"] .side-panel,
+html[data-theme="dark"] .activity-panel {
+  color: var(--theme-ink);
+  background: var(--theme-surface);
+  border-color: var(--theme-border);
+  box-shadow: 0 8px 22px rgb(0 0 0 / 18%);
+}
+
+html[data-theme="dark"] .metric-total,
+html[data-theme="dark"] .metric-review,
+html[data-theme="dark"] .metric-accent {
+  color: var(--theme-ink);
+  background: linear-gradient(145deg, #1b3023, #14251c);
+  border-color: #304737;
+}
+
+html[data-theme="dark"] .metric-refinement {
+  color: #edf5ed;
+  background: linear-gradient(145deg, #214f3e, #173c30);
+  border-color: #315b45;
+}
+
+html[data-theme="dark"] .metric-complete,
+html[data-theme="dark"] .workflow-panel {
+  color: #e6eee7;
+  background: linear-gradient(145deg, #101713, #17221b);
+  border-color: #304238;
+}
+
+html[data-theme="dark"] .attention-panel {
+  color: #e0eee2;
+  background: #173b2d;
+  border-color: #2a5640;
+}
+
+html[data-theme="dark"] .table-wrap,
+html[data-theme="dark"] .data-table,
+html[data-theme="dark"] .data-table tbody tr,
+html[data-theme="dark"] .data-table tbody tr:nth-child(even) {
+  color: var(--theme-ink);
+  background-color: var(--theme-surface);
+}
+
+html[data-theme="dark"] .data-table th {
+  color: #b8d0bc;
+  background: #1d2b21;
+  border-color: #304137;
+}
+
+html[data-theme="dark"] .data-table td {
+  color: #d4dfd5;
+  border-color: #28382d;
+}
+
+html[data-theme="dark"] .data-table tbody tr:hover { background: var(--theme-surface-raised); }
+
+html[data-theme="dark"] .table-titlebar {
+  color: #e5f0e6;
+  background: #123a2b;
+  border-color: #2d503a;
+}
+
+html[data-theme="dark"] .table-titlebar span:last-child { color: #bed1c2; }
+
+html[data-theme="dark"] .pipeline-step,
+html[data-theme="dark"] .mini-event,
+html[data-theme="dark"] .document-row,
+html[data-theme="dark"] .type-card,
+html[data-theme="dark"] .refinement-card,
+html[data-theme="dark"] .routing-history-box,
+html[data-theme="dark"] .route-record,
+html[data-theme="dark"] .ip-record,
+html[data-theme="dark"] .requirement-block,
+html[data-theme="dark"] .checklist-row,
+html[data-theme="dark"] .activity-row,
+html[data-theme="dark"] .version-row,
+html[data-theme="dark"] .review-record,
+html[data-theme="dark"] .review-summary,
+html[data-theme="dark"] .upload-zone,
+html[data-theme="dark"] .selected-file,
+html[data-theme="dark"] .summary-band,
+html[data-theme="dark"] .prototype-caveat,
+html[data-theme="dark"] .report-caveat,
+html[data-theme="dark"] .settings-tip,
+html[data-theme="dark"] .operations-panel,
+html[data-theme="dark"] .operations-metric,
+html[data-theme="dark"] .operations-record-card,
+html[data-theme="dark"] .operations-session-card,
+html[data-theme="dark"] .operations-partner-card,
+html[data-theme="dark"] .operations-asset-card,
+html[data-theme="dark"] .operations-manager,
+html[data-theme="dark"] .operations-upcoming-item {
+  color: var(--theme-ink);
+  background-color: var(--theme-surface);
+  border-color: var(--theme-border);
+}
+
+html[data-theme="dark"] .operations-metric-attention {
+  background: linear-gradient(145deg, #203b2a, #192d21);
+  border-color: #38513b;
+}
+
+html[data-theme="dark"] .operations-form {
+  color: var(--theme-ink);
+  background: #1b2820;
+  border-color: var(--theme-border);
+}
+
+html[data-theme="dark"] .operations-trainee-notice,
+html[data-theme="dark"] .operations-partner-rule,
+html[data-theme="dark"] .operations-equipment-rule,
+html[data-theme="dark"] .operations-policy-callout,
+html[data-theme="dark"] .operations-published-details {
+  color: #c5d8c9;
+  background: #1c3426;
+  border-color: #34533c;
+}
+
+html[data-theme="dark"] .operations-overview-banner,
+html[data-theme="dark"] .activity-hero {
+  color: #e5eee6;
+  background: radial-gradient(ellipse at 87% 42%, #294b35 0, #1b3023 39%, transparent 40%), #1b3023;
+  border-color: #34513b;
+}
+
+html[data-theme="dark"] input,
+html[data-theme="dark"] select,
+html[data-theme="dark"] textarea,
+html[data-theme="dark"] .global-search,
+html[data-theme="dark"] .search-input,
+html[data-theme="dark"] .sort-control,
+html[data-theme="dark"] .operations-field input,
+html[data-theme="dark"] .operations-field select,
+html[data-theme="dark"] .operations-field textarea,
+html[data-theme="dark"] .operations-mou-form input,
+html[data-theme="dark"] .operations-mou-form select,
+html[data-theme="dark"] .operations-asset-form input,
+html[data-theme="dark"] .operations-asset-form select,
+html[data-theme="dark"] .operations-asset-form textarea {
+  color: #e0e9e1;
+  background-color: var(--theme-input);
+  border-color: #35443a;
+}
+
+html[data-theme="dark"] input::placeholder,
+html[data-theme="dark"] textarea::placeholder { color: #9aa99c; }
+
+html[data-theme="dark"] .profile-popover,
+html[data-theme="dark"] .search-results,
+html[data-theme="dark"] .top-popover,
+html[data-theme="dark"] .notification-popover {
+  color: var(--theme-ink);
+  background: #18211b;
+  border-color: var(--theme-border);
+}
+
+html[data-theme="dark"] .search-result,
+html[data-theme="dark"] .role-choice,
+html[data-theme="dark"] .notification-item { color: #e0e9e1; }
+
+html[data-theme="dark"] .search-result:hover,
+html[data-theme="dark"] .role-choice:hover,
+html[data-theme="dark"] .notification-item:hover {
+  color: #e5f0e6;
+  background: #26372c;
+}
+
+html[data-theme="dark"] .btn-outline,
+html[data-theme="dark"] .operations-button-outline,
+html[data-theme="dark"] .document-actions button,
+html[data-theme="dark"] .side-actions button,
+html[data-theme="dark"] .operations-review-buttons button,
+html[data-theme="dark"] .operations-icon-button {
+  color: #d7e5d9;
+  background: #1c2921;
+  border-color: #35463a;
+}
+
+html[data-theme="dark"] .btn-outline:hover,
+html[data-theme="dark"] .operations-button-outline:hover,
+html[data-theme="dark"] .document-actions button:hover,
+html[data-theme="dark"] .side-actions button:hover,
+html[data-theme="dark"] .operations-review-buttons button:hover {
+  color: #e6f3e8;
+  background: #254331;
+  border-color: #4b7458;
+}
+
+html[data-theme="dark"] .operations-review-buttons button:first-child {
+  color: #bde8c7;
+  background: #244a32;
+  border-color: #356145;
+}
+
+html[data-theme="dark"] .operations-page {
+  --ops-ink: #e2ebe3;
+  --ops-muted: #a7b5a9;
+  --ops-line: #2d3c32;
+  --ops-soft: #1b2820;
+  --ops-green: #65b887;
+  --ops-pale: #21362a;
+  color: var(--theme-ink);
+}
+
+html[data-theme="dark"] .mobile-dock {
+  color: var(--theme-ink);
+  background: #121a15;
+  border-color: var(--theme-border);
+}
+
+/* Ensure literal ink colors in legacy component rules never disappear in dark mode. */
+html[data-theme="dark"] .page-heading h1,
+html[data-theme="dark"] .detail-head h1,
+html[data-theme="dark"] .section-head h2,
+html[data-theme="dark"] .operations-header h1,
+html[data-theme="dark"] .operations-section-intro h2,
+html[data-theme="dark"] .operations-overview-copy h2,
+html[data-theme="dark"] .register-panel-head h2,
+html[data-theme="dark"] .completion-wrap h1,
+html[data-theme="dark"] .empty-state h3,
+html[data-theme="dark"] .operations-empty h3,
+html[data-theme="dark"] .operations-panel-heading h2,
+html[data-theme="dark"] .operations-form-title h3,
+html[data-theme="dark"] .operations-session-top h3,
+html[data-theme="dark"] .operations-partner-main h3,
+html[data-theme="dark"] .operations-record-main b,
+html[data-theme="dark"] .operations-record-meta b,
+html[data-theme="dark"] .operations-asset-heading b,
+html[data-theme="dark"] .operations-manager b,
+html[data-theme="dark"] .operations-upcoming-copy b,
+html[data-theme="dark"] .operations-payment-person > b,
+html[data-theme="dark"] .operations-session-instructor b,
+html[data-theme="dark"] .operations-published-details > p strong,
+html[data-theme="dark"] .operations-published-details dd,
+html[data-theme="dark"] .operations-policy-grid article b,
+html[data-theme="dark"] .operations-trainee-notice b,
+html[data-theme="dark"] .operations-partner-rule b,
+html[data-theme="dark"] .operations-equipment-rule b,
+html[data-theme="dark"] .info-grid b,
+html[data-theme="dark"] .queue-facts b,
+html[data-theme="dark"] .summary-grid b,
+html[data-theme="dark"] .story-grid p,
+html[data-theme="dark"] .lead-copy,
+html[data-theme="dark"] .submission-title-link,
+html[data-theme="dark"] .submission-title-link b,
+html[data-theme="dark"] .queue-record-copy > b,
+html[data-theme="dark"] .review-meta b,
+html[data-theme="dark"] .reviewer-line b,
+html[data-theme="dark"] .version-row,
+html[data-theme="dark"] .activity-row-main,
+html[data-theme="dark"] .donut b,
+html[data-theme="dark"] .donut-legend b,
+html[data-theme="dark"] .donut-legend em {
+  color: #e1ebe2;
+}
+
+html[data-theme="dark"] .page-heading p,
+html[data-theme="dark"] .section-head p,
+html[data-theme="dark"] .operations-header p,
+html[data-theme="dark"] .operations-section-intro p,
+html[data-theme="dark"] .operations-overview-copy p,
+html[data-theme="dark"] .operations-panel-heading p,
+html[data-theme="dark"] .operations-record-main small,
+html[data-theme="dark"] .operations-record-meta small,
+html[data-theme="dark"] .operations-record-note,
+html[data-theme="dark"] .operations-manager small,
+html[data-theme="dark"] .operations-upcoming-copy span,
+html[data-theme="dark"] .operations-upcoming-copy small,
+html[data-theme="dark"] .operations-session-details span,
+html[data-theme="dark"] .operations-session-instructor,
+html[data-theme="dark"] .operations-payment-person > small,
+html[data-theme="dark"] .operations-published-details dt,
+html[data-theme="dark"] .operations-published-details > p,
+html[data-theme="dark"] .operations-policy-grid article p,
+html[data-theme="dark"] .operations-trainee-notice p,
+html[data-theme="dark"] .operations-partner-rule p,
+html[data-theme="dark"] .operations-equipment-rule p,
+html[data-theme="dark"] .story-grid label,
+html[data-theme="dark"] .info-grid label,
+html[data-theme="dark"] .queue-facts label,
+html[data-theme="dark"] .summary-grid label,
+html[data-theme="dark"] .story-grid p,
+html[data-theme="dark"] .queue-summary > p,
+html[data-theme="dark"] .review-record p,
+html[data-theme="dark"] .review-record small,
+html[data-theme="dark"] .review-meta + small,
+html[data-theme="dark"] .timeline-item b,
+html[data-theme="dark"] .timeline-item small,
+html[data-theme="dark"] .donut small,
+html[data-theme="dark"] .donut-legend span,
+html[data-theme="dark"] .empty-state p {
+  color: #a9b8ac;
+}
+
+html[data-theme="dark"] .badge,
+html[data-theme="dark"] .badge-neutral,
+html[data-theme="dark"] .operations-status,
+html[data-theme="dark"] .operations-status-neutral {
+  color: #c0ccc2;
+  background: #28352b;
+}
+
+html[data-theme="dark"] .badge-green,
+html[data-theme="dark"] .operations-status-green {
+  color: #bde8c7;
+  background: #244a32;
+}
+
+html[data-theme="dark"] .badge-amber,
+html[data-theme="dark"] .operations-status-amber {
+  color: #f0d39d;
+  background: #49371e;
+}
+
+html[data-theme="dark"] .badge-blue,
+html[data-theme="dark"] .operations-status-blue {
+  color: #b9d9e8;
+  background: #243d49;
+}
+
+html[data-theme="dark"] .badge-olive,
+html[data-theme="dark"] .operations-status-olive {
+  color: #d8e2a6;
+  background: #3b4427;
+}
+
+html[data-theme="dark"] .badge-red {
+  color: #f3c2bb;
+  background: #4a2925;
+}
+
+html[data-theme="light"] .badge-red {
+  color: #8f443a;
+  background: #f5e5e1;
+}
+
+html[data-theme="dark"] .welcome-banner {
+  color: #e2eee3;
+  background: #1b3023;
+  border-color: #34513b;
+}
+
+html[data-theme="dark"] .welcome-copy h1 { color: #e6efe6; }
+html[data-theme="dark"] .welcome-copy p,
+html[data-theme="dark"] .welcome-banner .eyebrow { color: #b0c2b2; }
+html[data-theme="dark"] .art-ring { border-color: #58745d; }
+html[data-theme="dark"] .ring-two { border-color: #486b52; }
+html[data-theme="dark"] .art-caption { color: #b0c2b2; }
+
+html[data-theme="dark"] .queue-record {
+  color: #cad8cc;
+  border-color: var(--theme-border);
+}
+
+html[data-theme="dark"] .queue-record:hover,
+html[data-theme="dark"] .queue-record.selected {
+  color: #e2eee3;
+  background: #202f24;
+}
+
+html[data-theme="dark"] .queue-record.selected { box-shadow: inset 2px 0 #65b887; }
+html[data-theme="dark"] .queue-record-copy > b { color: #e1ebe2; }
+html[data-theme="dark"] .queue-record-copy > small,
+html[data-theme="dark"] .queue-record-status em { color: #a7b7aa; }
+html[data-theme="dark"] .queue-selected-top,
+html[data-theme="dark"] .queue-form,
+html[data-theme="dark"] .queue-form,
+html[data-theme="dark"] .feedback-list,
+html[data-theme="dark"] .version-block,
+html[data-theme="dark"] .operations-payment-list,
+html[data-theme="dark"] .operations-mou-form,
+html[data-theme="dark"] .operations-asset-form { border-color: var(--theme-border); }
+
+html[data-theme="dark"] .detail-stepper .step-circle {
+  color: #b4c2b6;
+  background: #1a251d;
+  border-color: #3a4b3e;
+}
+
+html[data-theme="dark"] .detail-stepper .step-done { color: #b8d9bf; }
+html[data-theme="dark"] .detail-stepper .step-done .step-circle {
+  color: #c5e6cb;
+  background: #254532;
+  border-color: #42664a;
+}
+
+html[data-theme="dark"] .detail-stepper .step-current,
+html[data-theme="dark"] .text-link,
+html[data-theme="dark"] .breadcrumbs a,
+html[data-theme="dark"] .operations-text-button,
+html[data-theme="dark"] .operations-published-details a {
+  color: #83c69a;
+}
+
+html[data-theme="dark"] .next-step-card,
+html[data-theme="dark"] .doc-empty,
+html[data-theme="dark"] .requirement-row,
+html[data-theme="dark"] .setting-help,
+html[data-theme="dark"] .routing-history-box,
+html[data-theme="dark"] .checklist-row,
+html[data-theme="dark"] .config-list > div,
+html[data-theme="dark"] .summary-band {
+  color: #d6e2d8;
+  background: #1b2820;
+  border-color: var(--theme-border);
+}
+
+html[data-theme="dark"] .next-step-card b,
+html[data-theme="dark"] .requirement-row > span,
+html[data-theme="dark"] .setting-label,
+html[data-theme="dark"] .config-list b,
+html[data-theme="dark"] .version-row > span,
+html[data-theme="dark"] .review-summary b {
+  color: #dfe9e0;
+}
+
+html[data-theme="dark"] .next-step-card p,
+html[data-theme="dark"] .requirement-row small,
+html[data-theme="dark"] .version-row small,
+html[data-theme="dark"] .version-row p,
+html[data-theme="dark"] .setting-help,
+html[data-theme="dark"] .prototype-caveat,
+html[data-theme="dark"] .report-caveat,
+html[data-theme="dark"] .form-hint,
+html[data-theme="dark"] .operations-form-hint {
+  color: #a7b7aa;
+}
+
+html[data-theme="dark"] .register-panel-head h2,
+html[data-theme="dark"] .summary-band h3,
+html[data-theme="dark"] .upload-zone b,
+html[data-theme="dark"] .completion-wrap h1 {
+  color: #e1ebe2;
+}
+
+html[data-theme="dark"] .register-step { color: #a8b6aa; }
+html[data-theme="dark"] .register-step.active { color: #d5e9d9; background: #1d3a2a; }
+html[data-theme="dark"] .register-step > span { color: #a8b6aa; border-color: #394a3d; }
+html[data-theme="dark"] .staff-note p { color: #a7b7aa; }
+
+html[data-theme="dark"] .operations-action-row { color: #c2d0c4; }
+html[data-theme="dark"] .operations-action-row > span:nth-child(2) b { color: #e0e9e1; }
+html[data-theme="dark"] .operations-action-row > span:nth-child(2) small { color: #a6b5a8; }
+html[data-theme="dark"] .operations-action-row > svg { color: #9daf9f; }
+html[data-theme="dark"] .operations-action-row:hover .operations-action-icon {
+  color: #c3e4ca;
+  background: #294a33;
+}
+
+html[data-theme="dark"] .operations-action-icon,
+html[data-theme="dark"] .operations-date-chip,
+html[data-theme="dark"] .operations-policy-icon,
+html[data-theme="dark"] .operations-course-mark,
+html[data-theme="dark"] .operations-record-icon,
+html[data-theme="dark"] .operations-asset-icon,
+html[data-theme="dark"] .partner-icon {
+  color: #b7d1bc;
+  background: #263b2b;
+}
+
+html[data-theme="dark"] .action-amber,
+html[data-theme="dark"] .record-icon-lime,
+html[data-theme="dark"] .asset-tone-1 {
+  color: #e4d8a7;
+  background: #3c3b27;
+}
+
+html[data-theme="dark"] .action-slate,
+html[data-theme="dark"] .asset-tone-2 {
+  color: #c0d7e0;
+  background: #273b43;
+}
+
+html[data-theme="dark"] .operations-overview-kicker,
+html[data-theme="dark"] .operations-header-meta,
+html[data-theme="dark"] .operations-footer > span { color: #b4c7b7; }
+
+html[data-theme="dark"] .operations-header-meta small,
+html[data-theme="dark"] .operations-footer p,
+html[data-theme="dark"] .operations-metric > small,
+html[data-theme="dark"] .operations-capacity small,
+html[data-theme="dark"] .operations-session-actions > span,
+html[data-theme="dark"] .operations-form-hint,
+html[data-theme="dark"] .operations-manager-visibility,
+html[data-theme="dark"] .operations-asset-actions > span {
+  color: #9eafa1;
+}
+
+html[data-theme="dark"] .operations-tabs { border-color: var(--theme-border); }
+html[data-theme="dark"] .operations-tabs button { color: #b2c1b4; }
+html[data-theme="dark"] .operations-tabs button:hover,
+html[data-theme="dark"] .operations-tabs button.is-active {
+  color: #dcefe0;
+  background: #1d3a2a;
+}
+
+html[data-theme="dark"] .operations-notice {
+  color: #c5d8c9;
+  background: #1c3426;
+  border-color: #34533c;
+}
+
+html[data-theme="dark"] .operations-notice button { color: #b8e2c1; }
+html[data-theme="dark"] .operations-record-note strong { color: #d3e2d5; }
+html[data-theme="dark"] .operations-published-head,
+html[data-theme="dark"] .operations-verified-label { color: #9dd3a7; }
+html[data-theme="dark"] .operations-published-details dl div,
+html[data-theme="dark"] .operations-published-details .operations-published-instructions { border-color: #34513b; }
+html[data-theme="dark"] .operations-session-instructor,
+html[data-theme="dark"] .operations-payment-list,
+html[data-theme="dark"] .operations-payment-row { border-color: var(--theme-border); }
+html[data-theme="dark"] .operations-payment-list h4 { color: #b8c8bb; }
+html[data-theme="dark"] .operations-review-buttons button:first-child:hover {
+  color: #d5f0d9;
+  background: #2b5939;
+}
+
+html[data-theme="dark"] .operations-partner-rule > svg,
+html[data-theme="dark"] .operations-notice-icon {
+  color: #d6cc9d;
+  background: #3d3b28;
+}
+
+html[data-theme="dark"] .operations-partner-rule p b { color: #e1d7a8; }
+html[data-theme="dark"] .operations-approval-copy {
+  color: #edcf92;
+  background: #3b3020;
+}
+html[data-theme="dark"] .operations-approval-copy.is-approved {
+  color: #bde3c3;
+  background: #203a28;
+}
+
+html[data-theme="dark"] .operations-repair-alert {
+  color: #edcf92;
+  background: #382d1d;
+  border-color: #55432a;
+}
+html[data-theme="dark"] .operations-repair-alert small { color: #c6b58e; }
+
+html[data-theme="dark"] .operations-status-neutral {
+  color: #c0ccc2;
+  background: #28352b;
+}
+
+html[data-theme="dark"] .operations-button-primary,
+html[data-theme="dark"] .btn-primary {
+  color: #f3f8f2;
+  background: #176b52;
+}
+
+html[data-theme="dark"] .operations-button-primary:hover,
+html[data-theme="dark"] .btn-primary:hover { background: #1d795d; }
+
+html[data-theme="dark"] .form-grid label,
+html[data-theme="dark"] .setting-label,
+html[data-theme="dark"] .filter-label,
+html[data-theme="dark"] .assessment-checks label,
+html[data-theme="dark"] .checklist-row label,
+html[data-theme="dark"] .operations-field,
+html[data-theme="dark"] .operations-field label {
+  color: #c3d0c5;
+}
+
+html[data-theme="dark"] .form-divider,
+html[data-theme="dark"] .stepper-label,
+html[data-theme="dark"] .form-hint,
+html[data-theme="dark"] .operations-field small {
+  color: #9eafa1;
+}
+
+html[data-theme="dark"] .activity-row,
+html[data-theme="dark"] .feedback-item,
+html[data-theme="dark"] .config-list > div,
+html[data-theme="dark"] .review-record,
+html[data-theme="dark"] .register-panel-head,
+html[data-theme="dark"] .register-actions,
+html[data-theme="dark"] .story-grid,
+html[data-theme="dark"] .version-block,
+html[data-theme="dark"] .version-row,
+html[data-theme="dark"] .document-row,
+html[data-theme="dark"] .notification-head,
+html[data-theme="dark"] .notification-item,
+html[data-theme="dark"] .operations-footer {
+  border-color: var(--theme-border);
+}
+
+html[data-theme="dark"] .activity-row-main p,
+html[data-theme="dark"] .activity-row time,
+html[data-theme="dark"] .queue-list-head > div:first-child > span,
+html[data-theme="dark"] .queue-form-foot > span,
+html[data-theme="dark"] .result-count,
+html[data-theme="dark"] .table-sub,
+html[data-theme="dark"] .submission-title-link small,
+html[data-theme="dark"] .document-row small,
+html[data-theme="dark"] .review-record small,
+html[data-theme="dark"] .reviewer-line small,
+html[data-theme="dark"] .selected-file small,
+html[data-theme="dark"] .upload-zone span,
+html[data-theme="dark"] .upload-zone > small,
+html[data-theme="dark"] .completion-wrap > p,
+html[data-theme="dark"] .reset-panel p,
+html[data-theme="dark"] .not-found p {
+  color: #a7b5a9;
+}
+
+html[data-theme="dark"] .activity-row-main a,
+html[data-theme="dark"] .top-popover a,
+html[data-theme="dark"] .notification-popover > a,
+html[data-theme="dark"] .notification-read-all {
+  color: #83c69a;
+}
+
+html[data-theme="dark"] .activity-code,
+html[data-theme="dark"] .document-kind-row span,
+html[data-theme="dark"] .refinement-items span {
+  color: #c2d6c5;
+  background: #26372b;
+}
+
+html[data-theme="dark"] .form-error {
+  color: #f0c0b8;
+  background: #442824;
+}
+
+html[data-theme="dark"] .inline-success {
+  color: #c5e5ca;
+  background: #203a28;
+  border-color: #34563a;
+}
+
+html[data-theme="dark"] .operations-partner-contact b,
+html[data-theme="dark"] .operations-record-meta b,
+html[data-theme="dark"] .operations-payment-person > b,
+html[data-theme="dark"] .operations-session-instructor b,
+html[data-theme="dark"] .operations-partner-main h3,
+html[data-theme="dark"] .operations-asset-heading b,
+html[data-theme="dark"] .operations-upcoming-copy b,
+html[data-theme="dark"] .operations-session-top h3,
+html[data-theme="dark"] .operations-metric > strong {
+  color: #e1ebe2;
+}
+
+html[data-theme="dark"] .operations-partner-contact small,
+html[data-theme="dark"] .operations-course-label,
+html[data-theme="dark"] .operations-record-meta small,
+html[data-theme="dark"] .operations-session-details span,
+html[data-theme="dark"] .operations-session-actions > span,
+html[data-theme="dark"] .operations-proof-name,
+html[data-theme="dark"] .operations-payment-person > small,
+html[data-theme="dark"] .operations-asset-heading small {
+  color: #a9b8ac;
+}
+
+html[data-theme="dark"] .operations-form-title h3,
+html[data-theme="dark"] .operations-panel-heading h2,
+html[data-theme="dark"] .operations-policy-grid article b,
+html[data-theme="dark"] .operations-record-note strong,
+html[data-theme="dark"] .operations-partner-rule p b,
+html[data-theme="dark"] .operations-published-details dd,
+html[data-theme="dark"] .operations-published-details > p strong {
+  color: #dce9df;
+}
+
+html[data-theme="dark"] .bar-row > span,
+html[data-theme="dark"] .bar-row > b {
+  color: #b7c5b9;
+}
+
+html[data-theme="dark"] .bar-track { background: #2a382e; }
+html[data-theme="dark"] .bar-fill { background: #65b887; }
+html[data-theme="dark"] .bar-1 { background: #bdcf77; }
+html[data-theme="dark"] .bar-2 { background: #86b59a; }
+html[data-theme="dark"] .bar-3 { background: #d6b37c; }
+
+html[data-theme="dark"] .donut:before { background: var(--theme-surface); }
+html[data-theme="dark"] .donut b,
+html[data-theme="dark"] .donut-legend b,
+html[data-theme="dark"] .donut-legend em { color: #dfe9e0; }
+html[data-theme="dark"] .donut small,
+html[data-theme="dark"] .donut-legend span { color: #a7b7aa; }
+
+html[data-theme="dark"] .seg-tabs button,
+html[data-theme="dark"] .compact-tabs button {
+  color: #a8b6aa;
+}
+
+html[data-theme="dark"] .seg-tabs button:hover,
+html[data-theme="dark"] .compact-tabs button:hover {
+  color: #dcefe0;
+  background: #25362a;
+}
+
+html[data-theme="dark"] .seg-tabs button.selected,
+html[data-theme="dark"] .compact-tabs button.selected {
+  color: #dcefe0;
+  background: #1d3a2a;
+}
+
+html[data-theme="dark"] .sort-control.selected {
+  color: #a8ddb1;
+  background: #1d3325;
+  border-color: #42614a;
+}
+
+html[data-theme="dark"] .table-arrow { color: #a9b8ac; }
+html[data-theme="dark"] .table-arrow:hover { color: #bde8c7; background: #254532; }
+html[data-theme="dark"] .notification-item.unread { background: #1d3022; }
+html[data-theme="dark"] .notification-item small,
+html[data-theme="dark"] .notification-item em { color: #a7b7aa; }
+
+html[data-theme="dark"] .attention-panel .section-head h2,
+html[data-theme="dark"] .attention-panel .attention-row,
+html[data-theme="dark"] .attention-panel .attention-row > svg,
+html[data-theme="dark"] .attention-panel .attention-link {
+  color: #e0eee2;
+}
+
+html[data-theme="dark"] .attention-panel .section-head p,
+html[data-theme="dark"] .attention-panel .attention-copy small {
+  color: #b0c6b4;
+}
+
+html[data-theme="light"] .pipeline-step {
+  color: #e4eee5;
+  background: #214a35;
+  border-color: #365b42;
+}
+
+html[data-theme="light"] .pipeline-step:hover {
+  background: #28563d;
+  border-color: #4a7757;
+}
+
+html[data-theme="light"] .pipeline-step .pipeline-index,
+html[data-theme="light"] .pipeline-step b {
+  color: #c4d8c9;
+}
+
+html[data-theme="light"] .pipeline-step strong {
+  color: #f1f7f2;
+}
+
+html[data-theme="light"] .pipeline-step .pipeline-track {
+  background: #405945;
 }
