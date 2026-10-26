@@ -1926,3 +1926,11 @@ html[data-theme="dark"] .main-content select:disabled {
     font-size: 14px;
   }
 }
+
+/* Keep dropdown values left-aligned and vertically centered across the app. */
+body .app-shell .main-content select {
+  text-align: left;
+  text-align-last: left;
+  padding-block: 0;
+  line-height: 1.5;
+}
