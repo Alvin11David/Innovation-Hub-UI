@@ -6,6 +6,7 @@ import { useHub } from '@/lib/store';
 const nav: { label:string; items:[string,string,typeof Gauge][] }[] = [
   { label:'WORKSPACE', items:[['Overview','/',Gauge],['All Submissions','/submissions',FolderKanban],['Student Projects','/submissions/student',BookOpenCheck],['General Innovations','/submissions/innovations',Lightbulb]] },
   { label:'PROCESS', items:[['Reception','/reception',Inbox],['Fact-Finding','/fact-finding',ClipboardList],['Reviews','/reviews',ListChecks],['Routing & Assignments','/routing',ArrowUpRight],['Refinement','/refinement',BriefcaseBusiness]] },
+  { label:'OPERATIONS', items:[['UniPod Operations','/operations',BriefcaseBusiness]] },
   { label:'MANAGEMENT', items:[['Documents','/documents',FileText],['Activity History','/activity',Activity],['Reports & Analytics','/reports',Archive],['Settings','/settings',Settings]] },
 ];
 
