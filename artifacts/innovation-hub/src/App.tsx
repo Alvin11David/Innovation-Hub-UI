@@ -7,6 +7,7 @@ import { ActivityPage, Dashboard, DetailPage, DocumentsPage, QueuePage, Receptio
 import { Link, Route, Switch, Router as WouterRouter } from 'wouter';
 import './index.css';
 import './app.css';
+import './themes.css';
 
 const queryClient = new QueryClient();
 

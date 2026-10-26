@@ -1,7 +1,18 @@
-import { useMemo, useState, type ReactNode } from 'react';
+import { useEffect, useMemo, useState, type ReactNode } from 'react';
 import { Link, useLocation } from 'wouter';
-import { Activity, Archive, ArrowUpRight, Bell, BookOpenCheck, BriefcaseBusiness, CheckCheck, ChevronDown, ChevronLeft, CircleHelp, ClipboardList, FileText, FolderKanban, Gauge, Inbox, Lightbulb, ListChecks, Menu, Search, Settings, X } from 'lucide-react';
+import { Activity, Archive, ArrowUpRight, Bell, BookOpenCheck, BriefcaseBusiness, CheckCheck, ChevronDown, ChevronLeft, CircleHelp, ClipboardList, FileText, FolderKanban, Gauge, Inbox, Lightbulb, ListChecks, Menu, Moon, Search, Settings, Sun, X } from 'lucide-react';
 import { useHub } from '@/lib/store';
+
+type Theme = 'light' | 'dark';
+const themeStorageKey = 'innovation-hub-theme';
+
+function readTheme(): Theme {
+  try {
+    return window.localStorage.getItem(themeStorageKey) === 'dark' ? 'dark' : 'light';
+  } catch {
+    return 'light';
+  }
+}
 
 const nav: { label:string; items:[string,string,typeof Gauge][] }[] = [
   { label:'WORKSPACE', items:[['Overview','/',Gauge],['All Submissions','/submissions',FolderKanban],['Student Projects','/submissions/student',BookOpenCheck],['General Innovations','/submissions/innovations',Lightbulb]] },
@@ -18,6 +29,16 @@ export function Shell({ children }: { children: ReactNode }) {
   const [drawer, setDrawer] = useState(false);
   const [query, setQuery] = useState('');
   const [openMenu, setOpenMenu] = useState<'profile'|'notifications'|'help'|null>(null);
+  const [theme, setTheme] = useState<Theme>(readTheme);
+  useEffect(() => {
+    document.documentElement.dataset.theme = theme;
+    document.documentElement.style.colorScheme = theme;
+    try {
+      window.localStorage.setItem(themeStorageKey, theme);
+    } catch {
+      // The theme still applies for this session when browser storage is unavailable.
+    }
+  }, [theme]);
   const matches = useMemo(() => query.trim() ? state.submissions.filter(s => `${s.title} ${s.code||''} ${s.category} ${s.stage} ${s.submitter}`.toLowerCase().includes(query.toLowerCase())).slice(0,5) : [], [query,state.submissions]);
   const activeLabel = nav.flatMap(group => group.items).find(item => item[1] === location)?.[0] || (location.startsWith('/submissions/') && !['/submissions/student','/submissions/innovations'].includes(location) ? 'Submission detail' : location.startsWith('/register') ? 'Register submission' : 'Innovation Hub');
    const side = <aside id="hub-navigation" className={`hub-sidebar ${collapsed?'is-collapsed':''} ${drawer?'drawer-open':''}`}>
@@ -50,6 +71,7 @@ export function Shell({ children }: { children: ReactNode }) {
             {query&&<div className="search-results">{matches.length?matches.map(s=><Link href={`/submissions/${s.id}`} key={s.id} className="search-result" onClick={()=>setQuery('')}><span><b>{s.title}</b><small>{s.code||s.category} · {s.stage}</small></span><ArrowUpRight size={14}/></Link>):<div className="search-empty">No matching submissions</div>}</div>}
           </div>
            <div className="top-pop-wrap"><button className="icon-button notification-btn" aria-label="Notifications" aria-expanded={openMenu==='notifications'} data-testid="button-notifications" onClick={()=>setOpenMenu(openMenu==='notifications'?null:'notifications')}><Bell size={17}/>{state.notifications.some(n=>!n.read)&&<span className="notification-mark"/>}</button>{openMenu==='notifications'&&<div className="top-popover notification-popover"><div className="notification-head"><b>Notifications</b><button className="notification-read-all" onClick={()=>markAllRead()}><CheckCheck size={12}/> Mark all read</button></div><div className="notification-list">{state.notifications.slice(0,5).map(n=><Link href={n.link} key={n.id} className={`notification-item ${n.read?'':'unread'}`} data-testid={`notification-${n.id}`} onClick={()=>{markNotificationRead(n.id);setOpenMenu(null)}}><span><b>{n.title}</b><small>{n.body}</small><em>{noteDate(n.date)}</em></span><ArrowUpRight size={13}/></Link>)}{!state.notifications.length&&<p>No notifications yet.</p>}</div><Link href="/activity" onClick={()=>setOpenMenu(null)}>View activity history <ArrowUpRight size={13}/></Link></div>}</div>
+          <button className="icon-button theme-toggle" type="button" aria-label={`Switch to ${theme === 'dark' ? 'light' : 'dark'} theme`} aria-pressed={theme === 'dark'} title={`Switch to ${theme === 'dark' ? 'light' : 'dark'} theme`} data-testid="button-theme-toggle" onClick={() => setTheme(theme === 'dark' ? 'light' : 'dark')}>{theme === 'dark' ? <Sun size={17}/> : <Moon size={17}/>}</button>
            <div className="top-pop-wrap"><button className="icon-button" aria-label="Help" aria-expanded={openMenu==='help'} data-testid="button-help" onClick={()=>setOpenMenu(openMenu==='help'?null:'help')}><CircleHelp size={17}/></button>{openMenu==='help'&&<div className="top-popover"><b>Workspace guide</b><p>Use the stages as a flexible guide. Exact roles and destinations remain configurable.</p><Link href="/settings" onClick={()=>setOpenMenu(null)}>Review settings <ArrowUpRight size={13}/></Link></div>}</div>
           <Link href="/register" className="top-register" data-testid="link-register-top"><span>Register submission</span><span className="register-plus">+</span></Link>
         </div>
