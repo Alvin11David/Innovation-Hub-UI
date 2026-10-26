@@ -152,8 +152,8 @@ html[data-theme="dark"] .app-shell {
 
 html[data-theme="dark"] .hub-sidebar {
   color: var(--theme-ink);
-  background: #121a15;
-  border-color: var(--theme-border);
+  background: #176B52;
+  border-color: #125740;
 }
 
 html[data-theme="dark"] .brand-name b,
@@ -880,8 +880,8 @@ html[data-theme="light"] .mobile-dock {
 /* Dark mode uses near-black foundations with layered forest work surfaces. */
 html[data-theme="dark"] .hub-sidebar {
   color: var(--theme-ink);
-  background: #121a15;
-  border-color: var(--theme-border);
+  background: #176B52;
+  border-color: #125740;
 }
 
 html[data-theme="dark"] .main-column,
@@ -1657,4 +1657,59 @@ html[data-theme="light"] .pipeline-step strong {
 
 html[data-theme="light"] .pipeline-step .pipeline-track {
   background: #405945;
+}
+
+.hub-sidebar {
+  color: #f1f7f2;
+  background: #176B52;
+  border-right-color: #125740;
+}
+
+.hub-sidebar .brand-name b,
+.hub-sidebar .profile-card,
+.hub-sidebar .nav-link,
+.hub-sidebar .icon-button {
+  color: #f1f7f2;
+}
+
+.hub-sidebar .brand-name small,
+.hub-sidebar .nav-heading,
+.hub-sidebar .profile-copy small {
+  color: #d4e5d9;
+}
+
+.hub-sidebar .nav-link:hover,
+.hub-sidebar .icon-button:hover,
+.hub-sidebar .profile-card:hover {
+  color: #ffffff;
+  background: rgb(255 255 255 / 14%);
+  border-color: rgb(255 255 255 / 18%);
+}
+
+.hub-sidebar .nav-link.active {
+  color: #183d2d;
+  background: #d9f27a;
+}
+
+.hub-sidebar .nav-link.active:before {
+  background: #d9f27a;
+}
+
+.hub-sidebar .profile-card {
+  border-top-color: rgb(255 255 255 / 25%);
+}
+
+.hub-sidebar.is-collapsed .sidebar-collapse {
+  color: #f1f7f2;
+  background: #176B52;
+  border-color: rgb(255 255 255 / 30%);
+}
+
+.hub-sidebar .prototype-note {
+  color: #20362d;
+  background: #e9eee4;
+}
+
+.hub-sidebar .prototype-note small {
+  color: #536159;
 }

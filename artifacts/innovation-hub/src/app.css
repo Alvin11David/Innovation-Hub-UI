@@ -1,5 +1,5 @@
 .app-shell{display:flex;min-height:100dvh}
-.hub-sidebar{position:fixed;z-index:30;inset:0 auto 0 0;width:258px;background:#f1f2ec;border-right:1px solid #e3e5dd;display:flex;flex-direction:column;padding:21px 14px 14px;transition:width .25s ease,transform .25s ease}
+.hub-sidebar{position:fixed;z-index:30;inset:0 auto 0 0;width:258px;background:#176B52;border-right:1px solid #125740;display:flex;flex-direction:column;padding:21px 14px 14px;transition:width .25s ease,transform .25s ease}
 .hub-sidebar.is-collapsed{width:76px;padding-inline:11px}
 .brand-row{height:48px;display:flex;align-items:center;gap:11px;padding:0 7px;margin-bottom:30px;position:relative}
 .brand-mark{width:31px;height:31px;border-radius:9px;background:#176b52;display:grid;grid-template-columns:repeat(2,6px);grid-template-rows:repeat(2,6px);gap:3px;align-content:center;justify-content:center;flex:0 0 auto;transform:rotate(-5deg)}
@@ -803,9 +803,9 @@ body .app-shell select{border-radius:8px}
 body { background: #f6f7f1; }
 .app-shell { background: #f6f7f1; }
 .hub-sidebar {
-  background: #eff2e9;
-  border-right-color: #e0e6db;
-  box-shadow: 8px 0 34px rgba(39, 62, 46, .035);
+  background: #176B52;
+  border-right-color: #125740;
+  box-shadow: 8px 0 34px rgba(39, 62, 46, .12);
 }
 .brand-mark { border-radius: 10px; box-shadow: 0 5px 12px rgba(23,107,82,.16); }
 .brand-name b { color: var(--hub-ink); letter-spacing: .13em; }
