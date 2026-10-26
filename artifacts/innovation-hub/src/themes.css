@@ -331,8 +331,8 @@ html[data-theme="dark"] .metric-accent,
 html[data-theme="dark"] .metric-total,
 html[data-theme="dark"] .metric-review,
 html[data-theme="dark"] .metric-refinement {
-  background: linear-gradient(145deg, #1b3023, #14251c);
-  border-color: #304737;
+  background: linear-gradient(145deg, #123e30, #0f2d24);
+  border-color: #176b52;
 }
 
 html[data-theme="dark"] .metric-refinement {
