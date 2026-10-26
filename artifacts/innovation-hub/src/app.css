@@ -233,13 +233,19 @@ html[data-theme="dark"] .ih-register .ih-form-error{color:#ffb3a5;border-color:#
 .requirement-row b{font-size:9px}
 .requirement-row small{color:#8a928a}
 .doc-tools{display:flex;align-items:center;gap:7px;flex-wrap:wrap;margin-top:13px}
-.doc-tools select{height:33px;border:1px solid #e3e5de;background:#fff;border-radius:4px;padding:0 8px;font-size:9px;color:#475149}
-.doc-tools input:not([type=file]){height:33px;border:1px solid #e3e5de;border-radius:4px;padding:0 8px;font-size:9px;min-width:160px;flex:1}
-.doc-request-form{display:flex;gap:6px;align-items:center;flex:1;min-width:220px}
-.doc-request-form input{height:33px;border:1px solid #e3e5de;border-radius:4px;padding:0 8px;font-size:9px;flex:1;min-width:90px}
+.doc-tools select{height:38px;border:1px solid var(--theme-border);background:var(--theme-surface);border-radius:8px;padding:0 10px;font-size:10px;color:var(--theme-ink);transition:border-color .2s,box-shadow .2s}
+.doc-tools select:focus{outline:none;border-color:var(--theme-forest);box-shadow:0 0 0 2px rgb(23 107 82 / 10%)}
+.doc-tools input:not([type=file]){height:38px;border:1px solid var(--theme-border);border-radius:8px;padding:0 12px;font-size:10px;min-width:180px;flex:1;background:var(--theme-surface);color:var(--theme-ink);transition:border-color .2s,box-shadow .2s}
+.doc-tools input:not([type=file]):focus{outline:none;border-color:var(--theme-forest);box-shadow:0 0 0 2px rgb(23 107 82 / 10%)}
+.doc-request-form{display:flex;gap:8px;align-items:center;flex:1;min-width:240px}
+.doc-request-form input{height:38px;border:1px solid var(--theme-border);border-radius:8px;padding:0 12px;font-size:10px;flex:1;min-width:100px;background:var(--theme-surface);color:var(--theme-ink);transition:border-color .2s,box-shadow .2s}
+.doc-request-form input:focus{outline:none;border-color:var(--theme-forest);box-shadow:0 0 0 2px rgb(23 107 82 / 10%)}
 .doc-tools .file-select{min-height:33px}
-.review-form{flex-wrap:wrap}
-.review-form select{height:35px;border:1px solid #e3e5de;border-radius:4px;font-size:9px;padding:0 7px;background:#fff}
+.review-form{flex-wrap:wrap;gap:8px}
+.review-form select{height:40px;border:1px solid var(--theme-border);border-radius:8px;font-size:10px;padding:0 10px;background:var(--theme-surface);color:var(--theme-ink);transition:border-color .2s,box-shadow .2s}
+.review-form select:focus{outline:none;border-color:var(--theme-forest);box-shadow:0 0 0 2px rgb(23 107 82 / 10%)}
+.review-form textarea{border-radius:10px;padding:12px 14px;font-size:10px;line-height:1.6;border:1px solid var(--theme-border);background:var(--theme-surface);color:var(--theme-ink);transition:border-color .2s,box-shadow .2s}
+.review-form textarea:focus{outline:none;border-color:var(--theme-forest);box-shadow:0 0 0 2px rgb(23 107 82 / 10%)}
 .refinement-card{border:1px solid #eceee6;background:#fbfcf8;border-radius:5px;padding:11px;margin:8px 0}
 .refinement-head{display:flex;align-items:center;gap:8px;flex-wrap:wrap}
 .refinement-head b{font-size:10px}
@@ -253,7 +259,10 @@ html[data-theme="dark"] .ih-register .ih-form-error{color:#ffb3a5;border-color:#
 .version-row span{font:8px var(--font-mono);color:#176b52;grid-row:span 2}
 .version-row p{font-size:9px;margin:0;color:#69746c}
 .version-row small{font-size:8px;color:#969d96}
-.side-form textarea{width:100%;min-height:64px;padding:8px;border:1px solid #e3e5de;border-radius:4px;font-size:9px;resize:vertical;line-height:1.5}
+.side-form textarea{width:100%;min-height:72px;padding:10px 12px;border:1px solid var(--theme-border);border-radius:10px;font-size:10px;resize:vertical;line-height:1.6;background:var(--theme-surface);color:var(--theme-ink);transition:border-color .2s,box-shadow .2s}
+.side-form textarea:focus{outline:none;border-color:var(--theme-forest);box-shadow:0 0 0 2px rgb(23 107 82 / 10%)}
+.side-form select{height:40px;border:1px solid var(--theme-border);border-radius:8px;font-size:10px;padding:0 10px;background:var(--theme-surface);color:var(--theme-ink);transition:border-color .2s,box-shadow .2s}
+.side-form select:focus{outline:none;border-color:var(--theme-forest);box-shadow:0 0 0 2px rgb(23 107 82 / 10%)}
 .route-history-list{display:flex;flex-direction:column;gap:6px;margin-bottom:10px}
 .route-record{display:flex;align-items:center;gap:7px;flex-wrap:wrap;padding:8px 0;border-top:1px solid #eef0e9}
 .route-record>div:first-child{flex:1;min-width:120px;display:flex;flex-direction:column;gap:2px}
