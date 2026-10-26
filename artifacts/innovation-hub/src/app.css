@@ -587,3 +587,37 @@ button,a,select,input[type=checkbox],input[type=file]{touch-action:manipulation}
 }
 
 body .app-shell select{border-radius:8px}
+
+@supports (appearance:base-select) and selector(select::picker(select)){
+  body .app-shell select,
+  body .app-shell select::picker(select){appearance:base-select}
+  body .app-shell select::picker(select){
+    margin-block:4px;
+    padding:4px;
+    overflow:clip;
+    border:1px solid #dfe4dc;
+    border-radius:12px;
+    background:#fff;
+    color:#425046;
+    box-shadow:0 12px 30px rgba(34,48,38,.16)
+  }
+  body .app-shell select option{
+    min-height:32px;
+    padding:7px 10px;
+    border-radius:7px;
+    color:#425046;
+    font:500 10px/1.4 var(--font-sans,Arial,sans-serif)
+  }
+  body .app-shell select option:hover,
+  body .app-shell select option:focus-visible{
+    background:#f2f5ef;
+    color:#174f3c
+  }
+  body .app-shell select option:checked{
+    background:#e9efe7;
+    color:#174f3c
+  }
+  body .app-shell select option:disabled{
+    color:#9ba39b
+  }
+}
