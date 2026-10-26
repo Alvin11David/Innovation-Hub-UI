@@ -1,0 +1,104 @@
+@import url('https://fonts.googleapis.com/css2?family=DM+Mono:wght@400;500&family=Manrope:wght@400;500;600;700;800&family=Newsreader:opsz,wght@6..72,500;6..72,600&display=swap');
+
+:root {
+  --field-forest: #176b52;
+  --field-border: #dfe4dc;
+  --field-ink: #425046;
+  --field-muted: #a3aaa2;
+  --font-sans: 'Manrope', sans-serif;
+  --font-serif: 'Newsreader', Georgia, serif;
+  --font-mono: 'DM Mono', monospace;
+}
+
+* { box-sizing: border-box; }
+body {
+  margin: 0;
+  background: #f4f6f1;
+  color: #24372b;
+  font-family: var(--font-sans);
+  -webkit-font-smoothing: antialiased;
+}
+
+.field-showcase {
+  min-height: 100vh;
+  padding: 34px;
+  display: grid;
+  place-items: center;
+}
+
+.field-showcase-card {
+  width: min(100%, 680px);
+  padding: 28px;
+  border: 1px solid #e1e8df;
+  border-radius: 18px;
+  background: #fff;
+  box-shadow: 0 18px 50px rgb(27 48 34 / 8%);
+}
+
+.field-showcase-header {
+  margin-bottom: 24px;
+  padding-bottom: 18px;
+  border-bottom: 1px solid #edf0e9;
+}
+
+.field-showcase-kicker {
+  color: var(--field-forest);
+  font: 700 9px var(--font-mono);
+  letter-spacing: .13em;
+  text-transform: uppercase;
+}
+
+.field-showcase-header h1 {
+  margin: 8px 0 6px;
+  color: #20372b;
+  font: 500 30px/1.1 var(--font-serif);
+}
+
+.field-showcase-header p {
+  margin: 0;
+  color: #7b887e;
+  font-size: 11px;
+  line-height: 1.6;
+}
+
+.operations-form-grid {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 15px 13px;
+}
+
+.operations-field {
+  min-width: 0;
+  display: flex;
+  flex-direction: column;
+  gap: 5px;
+  color: #59665b;
+  font-size: 8px;
+  font-weight: 700;
+}
+
+.operations-field-wide { grid-column: 1 / -1; }
+
+.operations-field input,
+.operations-field textarea {
+  width: 100%;
+  min-width: 0;
+  min-height: 33px;
+  padding: 7px 8px;
+  border: 1px solid var(--field-border);
+  border-radius: 4px;
+  background: #fff;
+  color: var(--field-ink);
+  font: 500 9px var(--font-sans);
+}
+
+.operations-field input::placeholder,
+.operations-field textarea::placeholder { color: var(--field-muted); }
+.operations-field textarea { min-height: 54px; resize: vertical; line-height: 1.5; }
+
+@media (max-width: 560px) {
+  .field-showcase { padding: 16px; }
+  .field-showcase-card { padding: 21px 17px; border-radius: 15px; }
+  .operations-form-grid { grid-template-columns: 1fr; }
+  .operations-field-wide { grid-column: auto; }
+}

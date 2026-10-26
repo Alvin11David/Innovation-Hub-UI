@@ -1713,3 +1713,117 @@ html[data-theme="light"] .pipeline-step .pipeline-track {
 .hub-sidebar .prototype-note small {
   color: #536159;
 }
+
+:root {
+  --field-surface: #ffffff;
+  --field-border: #d9e3db;
+  --field-ink: #26392e;
+  --field-muted: #829087;
+  --field-focus: #176b52;
+  --field-focus-ring: rgb(23 107 82 / 15%);
+}
+
+html[data-theme="dark"] {
+  --field-surface: #141d17;
+  --field-border: #3c5141;
+  --field-ink: #e7efe8;
+  --field-muted: #9aac9e;
+  --field-focus: #83cf97;
+  --field-focus-ring: rgb(131 207 151 / 20%);
+}
+
+.main-content input:not([type="checkbox"]):not([type="radio"]):not([type="file"]):not([type="hidden"]):not([type="submit"]):not([type="button"]):not([type="reset"]):not([type="image"]):not([type="range"]):not([type="color"]),
+.main-content textarea {
+  min-height: 44px;
+  padding: 11px 13px;
+  border: 1px solid var(--field-border);
+  border-radius: 11px;
+  background: var(--field-surface);
+  color: var(--field-ink);
+  font: 500 11px/1.45 var(--font-sans, system-ui, sans-serif);
+  outline: none;
+  box-shadow: 0 1px 2px rgb(30 55 38 / 4%);
+  transition: border-color .18s ease, box-shadow .18s ease, background-color .18s ease;
+}
+
+.main-content textarea {
+  min-height: 96px;
+  padding: 12px 13px;
+  line-height: 1.6;
+}
+
+.main-content input:not([type="checkbox"]):not([type="radio"]):not([type="file"]):not([type="hidden"]):not([type="submit"]):not([type="button"]):not([type="reset"]):not([type="image"]):not([type="range"]):not([type="color"]):hover,
+.main-content textarea:hover,
+.main-content select:hover {
+  border-color: #aec4b3;
+}
+
+.main-content input:not([type="checkbox"]):not([type="radio"]):not([type="file"]):not([type="hidden"]):not([type="submit"]):not([type="button"]):not([type="reset"]):not([type="image"]):not([type="range"]):not([type="color"]):focus-visible,
+.main-content textarea:focus-visible,
+.main-content select:focus-visible {
+  border-color: var(--field-focus);
+  box-shadow: 0 0 0 3px var(--field-focus-ring);
+}
+
+.main-content input::placeholder,
+.main-content textarea::placeholder {
+  color: var(--field-muted);
+  opacity: 1;
+}
+
+.main-content input:disabled,
+.main-content textarea:disabled,
+.main-content select:disabled {
+  color: var(--field-muted);
+  background: color-mix(in srgb, var(--field-surface) 72%, var(--field-border));
+  cursor: not-allowed;
+}
+
+.main-content input[aria-invalid="true"],
+.main-content textarea[aria-invalid="true"] {
+  border-color: #b34e43;
+}
+
+.main-content .search-input {
+  min-height: 44px;
+  height: 44px;
+  padding: 0 13px;
+  border-color: var(--field-border);
+  border-radius: 12px;
+  background: var(--field-surface);
+  box-shadow: 0 1px 2px rgb(30 55 38 / 4%);
+  transition: border-color .18s ease, box-shadow .18s ease, background-color .18s ease;
+}
+
+.main-content .search-input:focus-within {
+  border-color: var(--field-focus);
+  box-shadow: 0 0 0 3px var(--field-focus-ring);
+}
+
+.main-content .search-input input {
+  min-height: 0;
+  height: auto;
+  padding: 0;
+  border: 0;
+  border-radius: 0;
+  background: transparent;
+  box-shadow: none;
+}
+
+.main-content .queue-form select,
+.main-content .form-row select,
+.main-content .filter-panel select,
+.main-content .report-controls select,
+.main-content .setting-label select,
+.main-content .side-form select,
+.main-content .doc-tools select,
+.main-content .operations-page select {
+  min-height: 44px;
+  padding: 0 12px;
+  border: 1px solid var(--field-border);
+  border-radius: 11px;
+  background-color: var(--field-surface);
+  color: var(--field-ink);
+  font: 500 11px/1.45 var(--font-sans, system-ui, sans-serif);
+  transition: border-color .18s ease, box-shadow .18s ease, background-color .18s ease;
+}

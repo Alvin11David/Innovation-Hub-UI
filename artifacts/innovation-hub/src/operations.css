@@ -570,7 +570,7 @@
 }
 .operations-icon-button:hover { background: #f0f4ed; color: #176b52; }
 .operations-form-grid { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 10px 11px; }
-.operations-field { min-width: 0; display: flex; flex-direction: column; gap: 5px; color: #59665b; font-size: 8px; font-weight: 700; }
+.operations-field { min-width: 0; display: flex; flex-direction: column; gap: 7px; color: #59665b; font-size: 10px; font-weight: 700; }
 .operations-field input,
 .operations-field select,
 .operations-field textarea,

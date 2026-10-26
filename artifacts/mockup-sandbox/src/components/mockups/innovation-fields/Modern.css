@@ -1,0 +1,49 @@
+.modern-fields .operations-field {
+  gap: 8px;
+  color: #34483a;
+  font-size: 10px;
+}
+
+.modern-fields .operations-field input,
+.modern-fields .operations-field textarea {
+  min-height: 46px;
+  padding: 11px 13px;
+  border: 1px solid #d9e3db;
+  border-radius: 11px;
+  background: #fbfcfa;
+  color: #26392e;
+  font: 500 11px/1.5 var(--font-sans);
+  outline: none;
+  box-shadow: 0 1px 2px rgb(30 55 38 / 4%);
+  transition: border-color .18s ease, box-shadow .18s ease, background-color .18s ease;
+}
+
+.modern-fields .operations-field input:hover,
+.modern-fields .operations-field textarea:hover {
+  border-color: #aec4b3;
+}
+
+.modern-fields .operations-field input:focus-visible,
+.modern-fields .operations-field textarea:focus-visible {
+  border-color: var(--field-forest);
+  background: #fff;
+  box-shadow: 0 0 0 3px rgb(23 107 82 / 15%);
+}
+
+.modern-fields .operations-field input::placeholder,
+.modern-fields .operations-field textarea::placeholder {
+  color: #829087;
+  opacity: 1;
+}
+
+.modern-fields .operations-field textarea {
+  min-height: 100px;
+  line-height: 1.6;
+}
+
+.modern-fields .operations-field input:disabled,
+.modern-fields .operations-field textarea:disabled {
+  color: #829087;
+  background: #f1f4ef;
+  cursor: not-allowed;
+}
