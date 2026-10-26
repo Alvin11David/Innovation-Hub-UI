@@ -471,9 +471,11 @@ button,a,select,input[type=checkbox],input[type=file]{touch-action:manipulation}
   .document-row>span:nth-child(2){min-width:calc(100% - 52px);overflow-wrap:anywhere}
   .document-actions{width:100%;padding-left:41px}
   .document-actions button{min-height:36px;padding-inline:9px}
-  .inline-form{flex-wrap:wrap}
-  .inline-form textarea{min-width:100%}
-  .inline-form select{min-height:40px;flex:1}
+.inline-form{flex-wrap:wrap;gap:8px}
+.inline-form textarea{min-width:100%;border:1px solid var(--theme-border);border-radius:10px;padding:10px 12px;background:var(--theme-surface);color:var(--theme-ink);font-size:10px;line-height:1.6;transition:border-color .2s,box-shadow .2s}
+.inline-form textarea:focus{outline:none;border-color:var(--theme-forest);box-shadow:0 0 0 2px rgb(23 107 82 / 10%)}
+.inline-form select{min-height:40px;flex:1;border:1px solid var(--theme-border);border-radius:8px;font-size:10px;padding:0 36px 0 12px;background:var(--theme-surface) url("data:image/svg+xml,%3csvg xmlns='http://www.w3.org/2000/svg' fill='none' viewBox='0 0 20 20'%3e%3cpath stroke='%23176b52' stroke-linecap='round' stroke-linejoin='round' stroke-width='1.5' d='m6 8 4 4 4-4'/%3e%3c/svg%3e") no-repeat right 12px center;background-size:16px;color:var(--theme-ink);text-align:left;line-height:40px;appearance:none;-webkit-appearance:none;-moz-appearance:none;transition:border-color .2s,box-shadow .2s}
+.inline-form select:focus{outline:none;border-color:var(--theme-forest);box-shadow:0 0 0 2px rgb(23 107 82 / 10%)}
   .queue-selected-top .submission-title-link{min-width:0}
   .queue-facts{grid-template-columns:repeat(2,minmax(0,1fr))}
   .settings-grid,.report-grid,.detail-layout,.queue-layout{min-width:0}
@@ -700,9 +702,10 @@ button,a,select,input[type=checkbox],input[type=file]{touch-action:manipulation}
   .doc-tools>*{width:100%;min-width:0}
   .doc-request-form{display:flex;flex-direction:column;gap:8px}
   .doc-request-form input{min-width:0}
-  .inline-form{display:grid;grid-template-columns:minmax(0,1fr)}
-  .inline-form textarea{min-width:0;min-height:90px}
-  .inline-form select,.inline-form .btn{min-height:44px}
+.inline-form{display:grid;grid-template-columns:minmax(0,1fr)}
+.inline-form textarea{min-width:0;min-height:90px;border:1px solid var(--theme-border);border-radius:10px;padding:10px 12px;background:var(--theme-surface);color:var(--theme-ink);font-size:10px;line-height:1.6}
+.inline-form select{min-height:40px;border:1px solid var(--theme-border);border-radius:8px;font-size:10px;padding:0 36px 0 12px;background:var(--theme-surface) url("data:image/svg+xml,%3csvg xmlns='http://www.w3.org/2000/svg' fill='none' viewBox='0 0 20 20'%3e%3cpath stroke='%23176b52' stroke-linecap='round' stroke-linejoin='round' stroke-width='1.5' d='m6 8 4 4 4-4'/%3e%3c/svg%3e") no-repeat right 12px center;background-size:16px;color:var(--theme-ink);text-align:left;line-height:40px;appearance:none;-webkit-appearance:none;-moz-appearance:none}
+.inline-form .btn{min-height:44px}
   .side-actions{grid-template-columns:1fr 1fr;gap:8px}
   .side-actions button{min-height:42px;padding:8px;border-radius:10px;font-size:9px}
   .register-layout{gap:12px}
