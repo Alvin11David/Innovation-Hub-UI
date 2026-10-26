@@ -20,6 +20,7 @@ html[data-theme="light"] body {
 }
 
 html[data-theme="light"] .panel,
+html[data-theme="light"] .card,
 html[data-theme="light"] .metric-card:not(.metric-complete):not(.metric-refinement),
 html[data-theme="light"] .filter-panel,
 html[data-theme="light"] .register-panel,
@@ -31,9 +32,19 @@ html[data-theme="light"] .timeline-panel,
 html[data-theme="light"] .reset-panel,
 html[data-theme="light"] .operations-panel,
 html[data-theme="light"] .operations-metric,
-html[data-theme="light"] .operations-record-card {
+html[data-theme="light"] .operations-record-card,
+html[data-theme="light"] .submissions-panel,
+html[data-theme="light"] .type-card,
+html[data-theme="light"] .document-row,
+html[data-theme="light"] .ip-record,
+html[data-theme="light"] .requirement-block,
+html[data-theme="light"] .pipeline-step,
+html[data-theme="light"] .mini-event,
+html[data-theme="light"] .refinement-card,
+html[data-theme="light"] .routing-history-box {
   background-color: var(--theme-surface);
   border-color: var(--theme-border);
+  color: var(--theme-ink);
 }
 
 html[data-theme="light"] .metric-card:not(.metric-complete):not(.metric-refinement) {
@@ -227,6 +238,7 @@ html[data-theme="dark"] .search-result:hover {
 }
 
 html[data-theme="dark"] .panel,
+html[data-theme="dark"] .card,
 html[data-theme="dark"] .metric-card:not(.metric-complete):not(.metric-refinement),
 html[data-theme="dark"] .filter-panel,
 html[data-theme="dark"] .register-panel,
@@ -239,7 +251,17 @@ html[data-theme="dark"] .reset-panel,
 html[data-theme="dark"] .operations-panel,
 html[data-theme="dark"] .operations-metric,
 html[data-theme="dark"] .operations-record-card,
-html[data-theme="dark"] .submissions-panel {
+html[data-theme="dark"] .submissions-panel,
+html[data-theme="dark"] .type-card,
+html[data-theme="dark"] .document-row,
+html[data-theme="dark"] .ip-record,
+html[data-theme="dark"] .requirement-block,
+html[data-theme="dark"] .pipeline-step,
+html[data-theme="dark"] .mini-event,
+html[data-theme="dark"] .refinement-card,
+html[data-theme="dark"] .routing-history-box,
+html[data-theme="dark"] .operations-manager,
+html[data-theme="dark"] .operations-upcoming-item {
   color: var(--theme-ink);
   background: var(--theme-surface);
   border-color: var(--theme-border);
@@ -273,11 +295,11 @@ html[data-theme="dark"] .data-table td {
 
 html[data-theme="dark"] .data-table tbody tr,
 html[data-theme="dark"] .data-table tbody tr:nth-child(even) {
-  background: #17211b;
+  background: var(--theme-surface);
 }
 
 html[data-theme="dark"] .data-table tbody tr:hover {
-  background: #20352a;
+  background: var(--theme-surface-raised);
 }
 
 html[data-theme="dark"] .data-table .submission-title-link,
