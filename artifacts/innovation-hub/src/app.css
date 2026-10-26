@@ -585,3 +585,5 @@ button,a,select,input[type=checkbox],input[type=file]{touch-action:manipulation}
   .queue-metrics{grid-template-columns:1fr}
   .stepper-side{grid-template-columns:repeat(2,minmax(0,1fr))}
 }
+
+body .app-shell select{border-radius:8px}
