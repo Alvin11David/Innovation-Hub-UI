@@ -921,6 +921,80 @@ body { background: #f6f7f1; }
 }
 .nav-link:focus-visible,.dock-link:focus-visible { outline-offset: 1px; }
 
+/* Keep the submissions filters consistent across native and base-select browsers. */
+body .app-shell .filter-controls select {
+  appearance: none;
+  -webkit-appearance: none;
+  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='16' height='16' viewBox='0 0 16 16'%3E%3Cpath d='m4 6 4 4 4-4' fill='none' stroke='%23727d73' stroke-width='1.6' stroke-linecap='round' stroke-linejoin='round'/%3E%3C/svg%3E");
+  background-repeat: no-repeat;
+  background-position: right 11px center;
+  background-size: 14px 14px;
+  box-sizing: border-box;
+  min-width: 0;
+  padding-right: 34px;
+}
+
+.filter-top .text-link {
+  min-height: 32px;
+  gap: 5px;
+  padding-inline: 6px;
+  border-radius: 7px;
+}
+
+.filter-top .text-link svg,
+.sort-control svg {
+  display: block;
+  flex: 0 0 auto;
+}
+
+.filter-controls .search-input,
+.filter-controls .sort-control {
+  box-sizing: border-box;
+}
+
+.filter-controls .sort-control {
+  min-height: 35px;
+  white-space: nowrap;
+}
+
+.filter-bottom {
+  gap: 10px;
+}
+
+.filter-bottom .seg-tabs {
+  min-width: 0;
+}
+
+.filter-bottom .result-count {
+  flex: 0 0 auto;
+}
+
+@media (max-width: 760px) {
+  .filter-controls select {
+    width: 100%;
+  }
+
+  .filter-controls select[data-testid="select-sector"] {
+    grid-column: 1 / -1;
+  }
+
+  .filter-controls .filter-result-count {
+    display: inline-flex;
+    align-items: center;
+    min-height: 44px;
+    grid-column: 1;
+    grid-row: 4;
+    padding-inline: 10px;
+  }
+
+  .filter-controls .sort-control {
+    grid-column: 2;
+    grid-row: 4;
+    width: 100%;
+    justify-content: flex-start;
+  }
+}
+
 @media (min-width: 1440px) {
   .main-content { padding-left: 50px; padding-right: 50px; }
   .welcome-banner { padding-inline: 52px; }
