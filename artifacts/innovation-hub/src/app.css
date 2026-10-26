@@ -53,8 +53,10 @@
 .ih-register-heading{position:relative;padding:8px 0 24px 21px;margin-bottom:19px;border-left:3px solid var(--reg-accent)}
 .ih-register-heading h1{font:500 clamp(30px,4vw,42px)/1.06 var(--font-serif);letter-spacing:-.035em;color:var(--reg-ink);margin:9px 0 8px}
 .ih-register-heading>p{font-size:12px;color:var(--reg-muted);margin:0;line-height:1.7}
-.ih-kicker{display:flex;align-items:center;gap:8px;color:var(--reg-accent);font:800 9px var(--font-mono);letter-spacing:.13em;text-transform:uppercase}
-.ih-kicker>span{width:17px;height:1px;background:currentColor}
+.ih-kicker{display:flex;align-items:center;gap:10px;color:var(--reg-accent);font:800 10px var(--font-mono);letter-spacing:.16em;text-transform:uppercase}
+.ih-kicker>span{width:18px;height:1.5px;background:currentColor}
+.ih-form-head .ih-kicker{color:var(--reg-accent);font-weight:900}
+.ih-form-head .ih-kicker span{color:var(--reg-muted);margin-left:4px}
 .ih-heading-meta{display:flex;gap:17px;flex-wrap:wrap;margin-top:14px;color:var(--reg-muted);font-size:9px}
 .ih-heading-meta span{display:flex;align-items:center;gap:6px}
 .ih-heading-meta svg{color:var(--reg-accent)}
