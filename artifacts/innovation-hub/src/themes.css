@@ -92,6 +92,22 @@ html[data-theme="light"] .metric-refinement {
   border-color: #214f3e;
 }
 
+html[data-theme="light"] .metric-accent {
+  background: linear-gradient(145deg, #123e30, #0f2d24);
+  border-color: #176b52;
+}
+
+html[data-theme="light"] .metric-accent .metric-top,
+html[data-theme="light"] .metric-accent .metric-value,
+html[data-theme="light"] .metric-accent .metric-note {
+  color: #eef5ee;
+}
+
+html[data-theme="light"] .metric-accent .metric-icon {
+  color: #d9f27a;
+  background: rgb(255 255 255 / 12%);
+}
+
 html[data-theme="light"] .metric-refinement .metric-top,
 html[data-theme="light"] .metric-refinement .metric-value,
 html[data-theme="light"] .metric-refinement .metric-note {
