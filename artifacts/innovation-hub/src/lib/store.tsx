@@ -5,6 +5,7 @@ import {
   type IPSubmission, type Notification, type RefinementRequest, type Review,
   type RoutingRecord, type State, type Submission, type Stage,
 } from './model';
+import { isStageTransitionAllowed } from './workflow';
 
 const today = () => new Date().toISOString().slice(0, 10);
 const uid = (prefix: string) => `${prefix}-${Date.now()}-${Math.random().toString(36).slice(2, 7)}`;
