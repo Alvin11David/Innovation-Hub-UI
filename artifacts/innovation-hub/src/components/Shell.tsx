@@ -2,6 +2,7 @@ import { useEffect, useMemo, useState, type ReactNode } from 'react';
 import { Link, useLocation } from 'wouter';
 import { Activity, Archive, ArrowUpRight, Bell, BookOpenCheck, BriefcaseBusiness, CheckCheck, ChevronDown, ChevronLeft, CircleHelp, ClipboardList, FileText, FolderKanban, Gauge, Inbox, Lightbulb, ListChecks, Menu, Moon, Search, Settings, Sun, X } from 'lucide-react';
 import { useHub } from '@/lib/store';
+import { roles } from '@/lib/workflow';
 
 type Theme = 'light' | 'dark';
 const themeStorageKey = 'innovation-hub-theme';
@@ -58,7 +59,7 @@ export function Shell({ children }: { children: ReactNode }) {
      <button className="profile-card" data-testid="button-profile-menu" aria-expanded={openMenu==='profile'} aria-haspopup="menu" onClick={()=>setOpenMenu(openMenu==='profile'?null:'profile')}>
       <span className="avatar">{state.displayName.split(' ').map(x=>x[0]).slice(0,2).join('')}</span>{!collapsed&&<span className="profile-copy"><b>{state.displayName}</b><small>{state.role}</small></span>}{!collapsed&&<ChevronDown size={15}/>}
     </button>
-    {openMenu==='profile'&&<div className="profile-popover"><div className="popover-title">Demonstration role</div>{['Administrator','Innovation coordinator','Receiving officer','Reviewer','Fact-finding officer','Sector officer','IP liaison','Student submitter','Read-only observer'].map(role=><button key={role} data-testid={`button-role-${role.replaceAll(' ','-')}`} className="role-choice" onClick={()=>{setRole(role);setOpenMenu(null)}}>{role}{state.role===role&&<span className="check-dot"/>}</button>)}</div>}
+    {openMenu==='profile'&&<div className="profile-popover"><div className="popover-title">Demonstration role</div>{roles.map(role=><button key={role} data-testid={`button-role-${role.replaceAll(' ','-')}`} className="role-choice" onClick={()=>{setRole(role);setOpenMenu(null)}}>{role}{state.role===role&&<span className="check-dot"/>}</button>)}</div>}
   </aside>;
   return <div className="app-shell">
     {side}

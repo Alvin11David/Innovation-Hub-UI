@@ -20,6 +20,10 @@ export type Action =
   | 'verify-document'
   | 'save-outcome';
 
+// The single canonical role list — both the sidebar's quick role switcher and
+// the Settings page's role simulation picker read from this, so they can't drift apart.
+export const roles: string[] = ['Administrator', 'Innovation coordinator', 'Receiving officer', 'Receptionist', 'Fact-finding officer', 'Reviewer', 'Sector officer', 'IP liaison', 'Student submitter', 'Read-only observer'];
+
 const permissions: Record<Action, string[]> = {
   register: ['Administrator', 'Innovation coordinator', 'Receiving officer', 'Receptionist', 'Fact-finding officer'],
   reception: ['Administrator', 'Innovation coordinator', 'Receptionist', 'Receiving officer'],
@@ -52,7 +56,7 @@ export function allowedRolesLabel(action: Action): string {
 // *manual* stage changes (the "Next step" shortcut and the fixed reception/
 // queue buttons) — dedicated actions like route(), resolveRefinement(), and
 // saveAssessment() carry their own domain logic and aren't restricted by this.
-const stageOrder: Stage[] = ['Received', 'Registered', 'Fact-Finding', 'Awaiting Routing', 'Under Review', 'Refinement Requested', 'Further Handling', 'Completed'];
+const stageOrder: Stage[] = ['Received', 'Registered', 'Fact-Finding', 'Under Review', 'Refinement Requested', 'Awaiting Routing', 'Further Handling', 'Completed'];
 
 export function allowedNextStages(current: Stage): Stage[] {
   const i = stageOrder.indexOf(current);
